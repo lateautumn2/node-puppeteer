@@ -1,0 +1,3669 @@
+<!DOCTYPE html>
+
+<script>
+  ;(function (context) {
+    var data = {}
+    var url = '//imgstat.baidu.com/17.gif'
+    var start = +new Date()
+    var createQuery = function (data) {
+      var ret = []
+      for (var key in data) {
+        ret.push(key + '=' + data[key])
+      }
+      return ret.join('&')
+    }
+
+    var _mergeCommPara = function (data) {
+      data.etype = 'speed'
+      data.page = 'result'
+      data.logid = '8280708651207312773'
+      data.sid = '0e5b5d3daec1dc9d2f68568b8bb1400fc2839d3e'
+      data.wh = window.screen.width + 'x' + window.screen.height
+      data.sampid = '-1'
+      data.app = 'searchresult'
+      data.spat = 0 + '-' + ''
+      data.protocol = window.location.protocol.replace(':', '')
+      if ('0' - 0) {
+        data.ishttps = '0'
+      }
+
+      data.sync = ''
+      return data
+    }
+    var _profiles = {
+      slider: {
+        _url: '//imgstat.baidu.com/17.gif',
+        etype: 'slide'
+      }
+    }
+    var speed = {
+      set: function (key, value) {
+        if (key) {
+          data[key] = value || 0
+        }
+      },
+      get: function (key) {
+        return data[key] || ('start' === key && start)
+      },
+      mark: function (key, value, ts) {
+        if (undefined === value) {
+          value = new Date() - start
+        }
+        if (true === ts) {
+          value = value - start
+        }
+        data[key] = value
+      },
+      send: function (ext) {
+        if (ext) {
+          for (var key in ext) {
+            data[key] = ext[key]
+          }
+        }
+        _mergeCommPara(data)
+        var queryString = createQuery(data)
+        new Image().src = url + '?' + queryString
+      },
+      loadmark: function () {
+        value = new Date() - start
+
+        if (speed.firstScCount) {
+          speed.firstScCount += 1
+        } else {
+          speed.firstScCount = 1
+        }
+
+        data['firstSc'] = value
+      },
+      log: function (profile, data) {
+        var queryString = createQuery(data)
+        var pf = _profiles[profile]
+        var a = []
+
+        _mergeCommPara(data)
+        for (var p in pf) {
+          if (p.indexOf('_') !== 0) {
+            data[p] = pf[p]
+          }
+        }
+        for (var p in data) {
+          a.push(p + '=' + data[p])
+        }
+
+        new Image().src = pf._url + '?' + a.join('&')
+      }
+    }
+    context.speed = speed
+    speed.firstScCount = 0
+    ;(function () {
+      window.logid = '8280708651207312773'
+      loaded = 0
+      var addWindowEvent = window.addEventListener
+        ? function (type, fn) {
+            window.addEventListener(type, fn, false)
+          }
+        : function (type, fn) {
+            window.attachEvent('on' + type, fn)
+          }
+      addWindowEvent('beforeunload', function () {
+        if (!loaded) {
+          speed.mark('leave')
+          speed.send()
+        }
+      })
+
+      addWindowEvent('load', function () {
+        loaded = 1
+      })
+    })()
+  })(window)
+</script>
+<script>
+  // ala进入打点
+  try {
+    if (!window._alaEnter) {
+      window._alaEnter = true
+      function query2Json(query) {
+        var json = {}
+        var search = query.split('&')
+        for (var i = search.length - 1; i >= 0; i--) {
+          var s = search[i].split('=')
+          json[s[0]] = s[1]
+        }
+        return json
+      }
+      var query = query2Json((location.search || '').replace('?', ''))
+      if (+query.hs && query.tn === 'baiduimage') {
+        var payload = 'dsp=pc&tn=result&hs=' + query.hs
+        new Image().src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=enter&t=' + +new Date()
+        window._alaEnter = function (type) {
+          new Image().src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=' + type + '&t=' + +new Date()
+        }
+        var sid = 'c3437dbc7c1255d3a21d444d86ebf2e9234c22bd'
+        if (window.localStorage && window.localStorage.sid && window.localStorage.sid !== sid) {
+          window._alaEnter('change')
+        }
+        window.localStorage.sid = sid
+      }
+    }
+  } catch (e) {}
+</script>
+<html>
+  <!--STATUS OK-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=/i?ct=201326592&lm=-1&tn=baiduimagenojs&ipn=rnj&pv=&word=%E7%8B%97&z=0&pn=0&rn=20&cl=2&ie=utf-8" />
+
+      <style>
+        table,
+        .p {
+          display: none;
+        }
+      </style>
+    </noscript>
+    <title>狗_百度图片搜索</title>
+    <link rel="shortcut icon" href="//img1.bdstatic.com/static/common/img/icon_cf1b905.png" type="image/x-icon" />
+    <link rel="icon" sizes="any" href="//img1.bdstatic.com/static/common/img/icon_cf1b905.png" />
+    <script>
+      void (function (a, b, c, d, e, f, g) {
+        ;(a.alogObjectName = e),
+          (a[e] =
+            a[e] ||
+            function () {
+              ;(a[e].q = a[e].q || []).push(arguments)
+            }),
+          (a[e].l = a[e].l || +new Date()),
+          (d = 'https:' === a.location.protocol ? 'https://fex.bdstatic.com' + d : 'http://fex.bdstatic.com' + d)
+        var h = !0
+        if (a.alogObjectConfig && a.alogObjectConfig.sample) {
+          var i = Math.random()
+          ;(a.alogObjectConfig.rand = i), i > a.alogObjectConfig.sample && (h = !1)
+        }
+        h &&
+          ((f = b.createElement(c)),
+          (f.async = !0),
+          (f.src = d + '?v=' + ~(new Date() / 864e5) + ~(new Date() / 864e5)),
+          (g = b.getElementsByTagName(c)[0]),
+          g.parentNode.insertBefore(f, g))
+      })(window, document, 'script', '/hunter/alog/alog.min.js', 'alog'),
+        void (function () {
+          function a() {}
+          window.PDC = {
+            mark: function (a, b) {
+              alog('speed.set', a, b || +new Date()), alog.fire && alog.fire('mark')
+            },
+            init: function (a) {
+              alog('speed.set', 'options', a)
+            },
+            view_start: a,
+            tti: a,
+            page_ready: a
+          }
+        })()
+      void (function (n) {
+        var o = !1
+        ;(n.onerror = function (n, e, t, c) {
+          var i = !0
+          return !e && /^script error/i.test(n) && (o ? (i = !1) : (o = !0)), i && alog('exception.send', 'exception', { msg: n, js: e, ln: t, col: c }), !1
+        }),
+          alog('exception.on', 'catch', function (n) {
+            alog('exception.send', 'exception', { msg: n.msg, js: n.path, ln: n.ln, method: n.method, flag: 'catch' })
+          })
+      })(window)
+    </script>
+    <script>
+      var Ihttps_agent_config = {
+        'http:\/\/nssug.baidu.com': 'https:\/\/sp1.baidu.com\/8qUZeT8a2gU2pMbgoY3K\/su',
+        'http:\/\/img.baidu.com': 'https:\/\/gss2.bdstatic.com\/70cFsjip0QIZ8tyhnq',
+        'http:\/\/himg.bdimg.com': 'https:\/\/ss1.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG',
+        'http:\/\/apps.bdimg.com': 'https:\/\/ss0.bdstatic.com\/9_QWf8Sm1A5BphGlnYG',
+        'http:\/\/f3.baidu.com': 'https:\/\/sp3.baidu.com\/-uV1bjeh1BF3odCf',
+        'http:\/\/bzclk.baidu.com': 'https:\/\/gsp0.baidu.com\/9q9JcDHa2gU2pMbgoY3K',
+        'http:\/\/img0.imgtn.bdimg.com': 'https:\/\/ss0.bdstatic.com\/70cFvHSh_Q1YnxGkpoWK1HF6hhy',
+        'http:\/\/img1.imgtn.bdimg.com': 'https:\/\/ss1.bdstatic.com\/70cFvXSh_Q1YnxGkpoWK1HF6hhy',
+        'http:\/\/img2.imgtn.bdimg.com': 'https:\/\/ss2.bdstatic.com\/70cFvnSh_Q1YnxGkpoWK1HF6hhy',
+        'http:\/\/img3.imgtn.bdimg.com': 'https:\/\/ss3.bdstatic.com\/70cFv8Sh_Q1YnxGkpoWK1HF6hhy',
+        'http:\/\/img4.imgtn.bdimg.com': 'https:\/\/ss0.bdstatic.com\/70cFuHSh_Q1YnxGkpoWK1HF6hhy',
+        'http:\/\/img5.imgtn.bdimg.com': 'https:\/\/ss1.bdstatic.com\/70cFuXSh_Q1YnxGkpoWK1HF6hhy',
+        'http:\/\/bdimg.share.baidu.com': 'https:\/\/gss0.baidu.com\/9rA4cT8aBw9FktbgoI7O1ygwehsv',
+        'http:\/\/dispatcher.video.qiyi.com': 'https:\/\/gss0.bdstatic.com\/-LsZfDe52w9JkxG9m9iS_HFjgAkrreHg-_',
+        'http:\/\/passport.bdimg.com': 'https:\/\/ss0.bdstatic.com\/5LMZfyabBhJ3otebn9fN2DJv'
+      }
+    </script>
+    <script type="text/javascript" src="//img1.bdstatic.com/static/common/mod_6f6741d.js"></script>
+    <script>
+      //记录页面开始时间, 也用于vs埋点
+      window.pageStartTime = new Date().getTime()
+      window.isBigFu = ''
+      // window.scrollTo(0, 0);
+    </script>
+
+    <script>
+      // 时效性热点
+    </script>
+    <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/pkg/co_14c8d6b.css" />
+    <link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/pkg/result_d0daeb2.css" />
+    <link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css" />
+    <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/widget/ui/userInfo/userInfo_81fda3f.css" />
+    <link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_ede2e3a.css" />
+    <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_7a57226.css" />
+    <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_3a19e37.css" />
+    <link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_1c9dbf5.css" />
+    <link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_0853ba4.css" />
+    <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/pagelets/base/newImgfilter/newImgFilter_db54797.css" />
+    <link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/pagelets/base/avfilter/avfilter_e68017c.css" />
+    <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/widget/loginbar/loginbar_5ddfcdc.css" />
+  </head>
+  <script>
+    alog('speed.set', 'ht', +new Date())
+  </script>
+  <body class="">
+    <script type="text/javascript">
+      require.siteNS && require.siteNS(['searchresult', 'common'])
+      require.resourceMap({
+        res: {
+          'searchresult:widget/ui/app/noResultPage.js': {
+            url: '//img1.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_aac2743.js',
+            deps: [
+              'common:widget/ui/base/base.js',
+              'searchresult:widget/ui/controls/relsearchBox/relsearchBox.js',
+              'common:widget/ui/userInfo/userInfo.js',
+              'searchresult:widget/ui/controls/hotwordBox/hotwordBox.js',
+              'searchresult:widget/ui/controls/suggBox/suggBox.js',
+              'searchresult:widget/ui/models/filtermodel.js',
+              'searchresult:widget/ui/statistic/statistic.js',
+              'common:widget/ui/utils/utils.js'
+            ]
+          },
+          'common:widget/shitu/static/animate.js': { url: '//img1.bdstatic.com/static/common/widget/shitu/static/animate_d5993fc.js', deps: ['common:widget/ui/base/base.js'] },
+          'common:widget/shitu/run.js': {
+            url: '//img0.bdstatic.com/static/common/widget/shitu/run_2c1ca54.js',
+            deps: ['common:widget/ui/base/base.js', 'common:widget/ui/utils/utils.js', 'common:widget/shitu/static/animate.js']
+          },
+          'searchresult:widget/pagelets/base/topRs/topRs.js': {
+            url: '//img1.bdstatic.com/static/searchresult/widget/pagelets/base/topRs/topRs_c41d15e.js',
+            deps: ['common:widget/ui/base/base.js', 'common:widget/ui/utils/utils.js']
+          },
+          'common:widget/ui/historyRecord/historyRecord.js': {
+            url: '//img0.bdstatic.com/static/common/widget/ui/historyRecord/historyRecord_31e31e1.js',
+            deps: ['common:widget/ui/base/base.js', 'common:widget/ui/base/events.js']
+          },
+          'common:widget/ui/loginBox/loginBox.js': { url: '//img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_ea459f5.js' },
+          'common:widget/loginbar/loginbar.js': {
+            url: '//img0.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js',
+            deps: ['common:widget/ui/base/base.js', 'common:widget/ui/loginBox/loginBox.js', 'common:widget/ui/base/EventDispatcher.js']
+          },
+          'common:widget/ui/sourcehttps/sourcehttps.js': { url: '//img1.bdstatic.com/static/common/widget/ui/sourcehttps/sourcehttps_a8b93d5.js' },
+          'common:widget/ui/fmCheck/fmCheck.js': { url: '//img1.bdstatic.com/static/common/widget/ui/fmCheck/fmCheck_e6197fc.js', deps: ['common:widget/ui/base/base.js'] },
+          'common:widget/ui/durationStat/durationStat.js': {
+            url: '//img1.bdstatic.com/static/common/widget/ui/durationStat/durationStat_d292e9f.js',
+            deps: ['common:widget/ui/utils/utils.js', 'common:widget/ui/base/base.js']
+          }
+        }
+      })
+    </script>
+
+    <div id="search" class="cg_avatar">
+      <script>
+        ;(function () {
+          var search = document.getElementById('search')
+          var width = window.innerWidth || (document.documentElement && document.documentElement.clientWidth) || (document.body && document.body.clientWidth)
+          if (search && width < 1217) {
+            search.className = 'narrow ' + search.className
+          }
+        })()
+      </script>
+      <div class="s_search">
+        <div id="imgSearchBox">
+          <div id="imgMainSearch">
+            <a href="/" class="s_logo">
+              <img src="//www.baidu.com/img/flexible/logo/pc/result@2.png" alt="到 百度图片首页 来" title="返回 百度图片首页" />
+            </a>
+            <div class="s_nav">
+              <form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+                <input type="hidden" name="tn" value="baiduimage" />
+                <input type="hidden" name="ipn" value="r" />
+                <input name="ct" type="hidden" value="201326592" />
+                <input name="cl" type="hidden" value="2" />
+                <input name="lm" type="hidden" value="-1" />
+                <input name="st" type="hidden" value="-1" />
+                <input name="fm" type="hidden" value="result" />
+                <input name="fr" type="hidden" value="" />
+                <input name="sf" type="hidden" value="1" />
+                <input name="fmq" type="hidden" value="" />
+                <input name="pv" type="hidden" value="" />
+                <input name="ic" type="hidden" value="0" />
+                <input name="nc" type="hidden" value="1" />
+                <input name="z" type="hidden" value="0" />
+                <input name="hd" type="hidden" value="0" />
+                <input name="latest" type="hidden" value="0" />
+                <input name="copyright" type="hidden" value="0" />
+                <input name="se" type="hidden" value="" />
+                <input name="showtab" type="hidden" value="0" />
+                <input name="fb" type="hidden" value="0" />
+                <input name="width" type="hidden" value="" />
+                <input name="height" type="hidden" value="" />
+                <input name="face" type="hidden" value="0" />
+                <input name="istype" type="hidden" value="2" />
+                <input name="dyTabStr" type="hidden" value="" />
+                <input name="ie" type="hidden" value="utf-8" />
+                <input name="ctd" type="hidden" value="" />
+                <input name="sid" type="hidden" value="" />
+                <span class="s_ipt_wr"
+                  ><input
+                    id="kw"
+                    name="word"
+                    class="s_ipt"
+                    value="狗"
+                    autocomplete="off"
+                    onfocus="this.parentNode.className='s_ipt_wr active'"
+                    onblur="this.parentNode.className='s_ipt_wr'" /></span
+                ><span class="s_btn_wr"
+                  ><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h ariaskiptheme'" onmouseout="this.className='s_btn ariaskiptheme'" value="百度一下"
+                /></span>
+              </form>
+              <div id="stcontent" class="common-shitu">
+                <a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息">
+                  <img
+                    class="st_camera_off"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAqNJREFUaN7tWMtu1DAULeL1B2XBCgRL3j8APwBLxIblsCqbfkAH/qAJsROGne2CsuiyXY5gTVsJluUfAIlHRRkN9ySdiTMMtZ3JJIzqK1mKZnJ9z/E9vnbu0pI3b968Lbxxnl4MIvV4PRJd0wi5WsO78PkvwK/H6kHAxE8CN3Qb8kfIxP12wTN1h4AcuoMfkzh8kYjbrYBPkvdng0h+GIE5eu5aDSY+6n5pmp5rnEDA5DNtNb8xpi7b+uJd+BT+6nmz4OM3N0j3v8YAmFxxl59c0aUU8Ne3agfa7/fPQKOk9Y4ugSAS+2MJMPluOByecp0bPgT8bTGP+FSWGcWkPQYMlcAztnGdAuyZKkkcq6tVFyh6lV4h4N8NMfaAxRk8rfLBcRPT5vtK2r03a5ZDLu7mcx0XSxxYk0DKJlb+M1WNpHQQxeIR55vL9R2Em8uYE3NrlSrJYmuZsJJTXtsL8GEvveQKqNfbuBBG8mHA5SoGnvGbc3YodokEYbMh0CkcROJUnaiSULq3yXcwRQoD/Be9VDfdqlWWiVxKXDwxO+QpHAXt2oNXT6ki/TadvngH71oTcMVThQAA/QUykjvZ6tHA8yQ5WxJzJ5DJRgOHq8G0QymXl3b1yDJhPrzmTyDXfAF+a+v8P9+l/8r3J7HdKgFUltGGtV3RiYwNTNVprgRQHrXV37He8NgfR36YozUCqPFVSm65NMpVT+DESmjhN/HCl9FZDzKbe5G/SpyIy5zLddr1471RAnV/0LRGoNbunzOBGb7I5tO+LE5tYDM6ZH2gYsN9cem41W2IDQwjPFZ91DRNTwdM7Ook9K5EYwPlVwMPTMBm1w1I5DVTX6jJASzA5NbSAAktE62BJwzO4HU5TeuNNiMh1UFsa9l48+bNm7cq9gfmr6wmxprr4wAAAABJRU5ErkJggg=="
+                    width="24"
+                    height="24"
+                  />
+                  <img
+                    class="st_camera_on"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAphJREFUaN7tWMtuEzEULeL1B7BgBYIljzhpK1iVJRtYVYjNeNJWgU3Z8AEE/iK/wA90DfsUCZb0HyhSCxW2dblnKiZ3otCxJ5MZovpKlkaJr32OfXz8WFmJESNGjKWPhwnd6GmbqNQMS0vi3qIucv4L8L2+faa0/dVJDIUUldifHW2ftgpeaeoyEBMKXpAw3T6pVsB3B3RZafMlB8PfXhLKZGS+yrzNIV1pnEBHm3eT0bRHq1t0yzcXdZEjZuN9o+DXtug+6/53DiB1u8EDwDlSSr1t6tQOdGNIl6BRpd2gKAH7TUjgExFdCG0bOZz7cdKOPSj0gT55jQFDtQWa0D2WyecyJ1lP6U5lE9im2wz8+MzFzhiApQJ4e1IC/kc3MY/ntuHUbKCts0nYE28SmLLCyGv7nUdpNLURvXj0iq7VJVW0hTbR9kRCdoS+5Ux4yQm6k+DXduhmKKD1Hbqu+vZ5V7s3KPjGb8FmwX1LEsDmQcANxMIaBcmBnYRz9rhTN0MGDv+tpvQgbLPkmchl616WJ/D05Qn87b2xafeatWw9dl+Lut4EQvFUIQBA0yDZIsfZ2skKf0+R8yWxcAKZbAQ4HA1mbUqn8hJHD87x2bwWTiDTvAD/ZJeu/qsu/iuen+xeqwTgLH8XrO+IFmaMc8vcaaEEYI9i9Mf+zmLGeR630RoBeHwVy5XWiDYigXMroaVfxEtvo/NuZD7noniUOBeHuZDjdOjlvVECdV9oWiNQ6+tfMIE5bmSLeb4UNzLGVr4Y+6QEgcOQF7e6A30DQ+5cPu+omx/ookrMviRReJVoqpxa8OHEvcw+sPlZYkp3y96FGi2MBZjCXp85Qc5EWwUYgsFLOc18G21EQm6Avr1lEyNGjBgxqsQfpdcIhlb9ZYwAAAAASUVORK5CYII="
+                    width="24"
+                    height="24"
+                  />
+                  <div class="st_tips" id="stTipsBox">按图片搜索</div>
+                </a>
+                <div id="stsug" class="stsug" style="display: none">
+                  <div id="sthead"><span>识图</span><img id="sthelp" width="13" height="13" src="//img1.bdstatic.com/static/common/widget/shitu/images/mark_cac9c0b.png" /></div>
+                  <div class="stf">
+                    <form id="form2" target="_self" enctype="multipart/form-data" name="form2">
+                      <a id="uploadImg" href="javascript:void(0)" data-nsclick="p=1811102&tn=index&event_type=shitu.search.click&pos=upload"
+                        >本地上传<input type="file" name="image" id="stfile" size="2"
+                      /></a>
+                      <div class="st_dragtg" id="dragtg" style="display: none">提示：您也可以把图片拖到这里</div>
+                      <input id="shitu2" name="pos" value="" type="hidden" /> <input name="uptype" value="upload_pc" type="hidden" />
+                      <input name="fm" value="index" type="hidden" />
+                    </form>
+                    <form id="form1" target="_self" enctype="multipart/form-data" method="get" name="form1">
+                      <div id="sturl">
+                        <span class="stuwr"> <input type="text" id="stuurl" placeholder="在此处粘贴图片网址" value="" autocomplete="off" class="stuurl" name="objurl" /> </span>
+                        <span class="stsb">
+                          <input
+                            type="submit"
+                            id="sbobj"
+                            class="stsb2"
+                            onmousedown="this.className='stsb2 stsb3'"
+                            onmouseout="this.className='stsb2'"
+                            onmouseover="this.className='stsb2 stsb4'"
+                            value="识图一下"
+                          />
+                        </span>
+                      </div>
+                      <input name="filename" id="filename" value="" type="hidden" /> <input name="rt" value="0" type="hidden" /> <input name="rn" value="10" type="hidden" />
+                      <input id="stftn" name="ftn" value="wantu" type="hidden" /> <input name="ct" value="1" type="hidden" /> <input name="stt" value="0" type="hidden" />
+                      <input name="tn" value="shituresultpc" type="hidden" /> <input id="shitu1" name="uptype" value="paste" type="hidden" />
+                      <input name="fm" value="index" type="hidden" />
+                    </form>
+                  </div>
+                  <div class="drag-text-tip" id="dttip">拖拽图片到此处试试</div>
+                  <div id="stmore" style="display: none">
+                    <div class="stmore-header">百度识图</div>
+                    <ul>
+                      <li>识别人物、搜索服饰、寻找高清素材、浏览相似美图，尽在百度识图!</li>
+                    </ul>
+                    <div class="stmore_arrow_in"></div>
+                    <div class="stmore_arrow_out"></div>
+                  </div>
+                  <a id="closest" href="javascript:void(0);" title="关闭"></a>
+                  <div id="point" style="display: none">
+                    <img src="//img1.bdstatic.com/img/image/shitu/feimg/uploading.gif" /><span>正在识别中，请稍候...</span>
+                    <a id="cancelst" href="javascript:void(0);" title="取消"></a>
+                  </div>
+                  <div class="undrag-text-tip" id="undragtip">
+                    <p>
+                      抱歉，Safari不支持拖拽识图。<br />
+                      请保存图片到本地，通过本地上传或在搜索框粘贴图片url进行识图。
+                    </p>
+                  </div>
+                  <div class="undrag-text-tip" id="untip">
+                    <p>
+                      IE9及以下版本浏览器不支持识图功能，<br />
+                      请升级浏览器或使用Chrome、QQ、搜狗浏览器进行识图
+                    </p>
+                  </div>
+                  <div id="dragtip" style="display: none">
+                    <span>请拖拽图片到此处</span>
+                    <div class="drag_dot_area drag_dot_left_top"></div>
+                    <div class="drag_dot_area drag_dot_left_bottom"></div>
+                    <div class="drag_dot_area drag_dot_right_top"></div>
+                    <div class="drag_dot_area drag_dot_right_bottom"></div>
+                    <a id="cancelst" href="javascript:void(0);" title="取消"></a>
+                  </div>
+                  <div class="left-border"></div>
+                  <div class="right-border"></div>
+                </div>
+                <div id="mock-stsug"></div>
+                <script>
+                  /***
+                   * 识图渠道号。
+                   */
+                  window['__abbaidu_2033_subidgetf'] = function () {
+                    var subid = 'shitu_pc'
+                    return subid
+                  }
+                </script>
+                <script>
+                  window['__abbaidu_2033_cb'] = function (responseData) {
+                    window.sdkParams = responseData
+                  }
+                </script>
+                <script async="" src="https://dlswbr.baidu.com/heicha/mw/abclite-2033-s.js"></script>
+              </div>
+            </div>
+            <div id="userInfo">
+              <a target="_blank" href="http://www.baidu.com/">百度首页</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="pageLayoutTipWindow">
+        <div class="page-layouttip-banner">
+          <div class="page-layouttip-describe">温馨提示：由于您的浏览器安装了某些插件，导致页面布局失败，重新加载可恢复布局</div>
+          <div class="page-layouttip-loadbtn">重新加载</div>
+          <div class="page-layouttip-viewbtn">继续查看</div>
+        </div>
+      </div>
+      <script type="text/javascript" src="//img1.bdstatic.com/static/searchresult/js/Base64_73b3e30.js"></script>
+      <script>
+        var TAB_MAP = {
+          0: {
+            name: '网页',
+            ename: 'ps',
+            iconcontent: '\\e608',
+            needDyTabStr: '0',
+            url: '//www.baidu.com/s?wd=_QUERY_'
+          },
+          1: {
+            name: '资讯',
+            ename: 'news',
+            iconcontent: '\\e606',
+            needDyTabStr: '0',
+            url: '//www.baidu.com/s?rtt=1&amp;bsst=1&amp;cl=2&amp;tn=news&amp;word=_QUERY_'
+          },
+          2: {
+            name: '视频',
+            ename: 'video',
+            iconcontent: '\\e604',
+            needDyTabStr: '0',
+            url: '//www.baidu.com/sf/vsearch?pd=video&amp;tn=vsearch&amp;wd=_QUERY_'
+          },
+          3: {
+            name: '图片',
+            ename: 'pic',
+            iconcontent: '\\e607',
+            needDyTabStr: '1',
+            url: '//image.baidu.com/search/index?tn=baiduimage&amp;ct=201326592&amp;lm=-1&amp;cl=2&amp;word=_QUERY_'
+          },
+          4: {
+            name: '知道',
+            ename: 'zhidao',
+            iconcontent: '\\e633',
+            needDyTabStr: '1',
+            url: '//zhidao.baidu.com/q?ct=17&amp;pn=0&amp;tn=ikaslist&amp;rn=10&amp;word=_QUERY_'
+          },
+          5: {
+            name: '文库',
+            ename: 'wenku',
+            iconcontent: '\\e605',
+            needDyTabStr: '1',
+            url: '//wenku.baidu.com/search?lm=0&amp;od=0&amp;word=_QUERY_'
+          },
+          6: {
+            name: '贴吧',
+            ename: 'tieba',
+            iconcontent: '\\e609',
+            needDyTabStr: '1',
+            url: '//tieba.baidu.com/f?kw=_QUERY_'
+          },
+          7: {
+            name: '地图',
+            ename: 'map',
+            iconcontent: '\\e630',
+            needDyTabStr: '0',
+            url: '//map.baidu.com/?newmap=1&amp;ie=utf-8&amp;s=s&amp;wd=_QUERY_'
+          },
+          8: {
+            name: '采购',
+            ename: 'b2b',
+            iconcontent: '\\e603',
+            needDyTabStr: '0',
+            url: '//b2b.baidu.com/s?q=_QUERY_'
+          },
+          9: {
+            name: '更多',
+            ename: 'more',
+            iconcontent: '',
+            needDyTabStr: '0',
+            url: '//www.baidu.com/more/'
+          },
+          10: {
+            name: '热议',
+            ename: 'realtime_ugc',
+            iconcontent: '\\e689',
+            needDyTabStr: '0',
+            url: '//www.baidu.com/sf/vsearch?tn=vsearch&amp;pd=realtime_ugc&amp;ie=utf-8&amp;word=_QUERY_'
+          }
+        }
+
+        require.async(['common:widget/ui/base/base'], function ($) {
+          getTabList()
+
+          function getTabList() {
+            $.ajax({
+              url: '//pc-index-static.cdn.bcebos.com/search/dyTabStr.json',
+              type: 'get',
+              success: function (response) {
+                TAB_MAP = response.tabMap
+              },
+              error: function () {
+                console.warn('Tab配置数据获取失败！！')
+              }
+            })
+          }
+        })
+      </script>
+      <script>
+        var commonHeaderConf = {
+          sugProdName: 'image',
+          searchInputId: 'kw'
+        }
+        void (function (w) {
+          window.setHeadUrl = function (o) {
+            var links = {
+                i_news: ['word', 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8', 1, false],
+                i_ps: ['wd', 'https://www.baidu.com/s?ie=utf-8', 1, false],
+                i_tieba: ['kw', 'http://tieba.baidu.com/f?ie=utf-8', 1, true],
+                i_zhidao: ['word', 'http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&lm=0&ie=utf-8', 1, true],
+                i_b2b: ['q', 'https://b2b.baidu.com/s?fr=img&ie=utf-8', 1, false],
+                i_video: ['wd', 'https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&ie=utf-8&wrsv_spt=10', 1, false],
+                i_map: ['wd', 'http://map.baidu.com/?newmap=1&ie=utf-8&s=s', 2, false],
+                i_baike: ['word', 'http://baike.baidu.com/search/word?pic=1&sug=1&enc=utf8', 1, false],
+                i_wenku: ['word', 'http://wenku.baidu.com/search?ie=utf-8', 1, true],
+                i_realtime_ugc: ['word', 'http://www.baidu.com/sf/vsearch?tn=vsearch&pd=realtime_ugc&ie=utf-8', 1, true]
+              },
+              name = o.name,
+              items = links[name],
+              kw = document.getElementById(w),
+              reg = new RegExp('^\\s+|\\s+\x24'),
+              key = kw.value.replace(reg, '')
+            if (items) {
+              if (key.length > 0) {
+                var wd = items[0],
+                  url = items[1],
+                  proSign = items[2],
+                  hasTabStr = items[3]
+                var searchQuery = location.search
+                // 如果URL中带有纠错的字段，则跳转到其他tab时，也需带该字段
+                if (searchQuery.indexOf('nojc=1') > -1) {
+                  url += '&nojc=1'
+                }
+
+                url = pro(url, wd, key, proSign, hasTabStr)
+                o.href = url
+              } else {
+                o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0]
+              }
+              if (!o.clickHandle) {
+                o.onclick = function (e) {
+                  if (typeof p === 'function') {
+                    e = e || window.event
+                    p(e, 52, { isAsyn: true, to: this.name, href: this.href })
+                  }
+                }
+                o.clickHandle = true
+              }
+            }
+            function pro(url, wd, key, proSign, hasTabStr) {
+              /*日文片假部分乱码\u30f7--\u30fb,转换成实体*/
+              function HtmlEncodeAndComponent(inTXT) {
+                /*地图，uri编码，不转换成实体*/
+                if (proSign == 2) {
+                  return encodeURIComponent(key)
+                }
+                var hexArray = [],
+                  entityCode = '',
+                  finalKey = '',
+                  character = '',
+                  tmpInt = 0
+                for (i = 0; i < inTXT.length; i++) {
+                  character = inTXT.charCodeAt(i).toString(16).toUpperCase()
+                  tmpInt = parseInt(character, 16)
+                  if (tmpInt >= 0x30f7 && tmpInt <= 0x30fb) {
+                    decCode = tmpInt.toString(10)
+                    entityCode = '&#' + decCode + ';'
+                    finalKey += encodeURIComponent(entityCode)
+                  } else {
+                    entityCode = inTXT.charAt(i)
+                    if (proSign > 0) {
+                      finalKey += encodeURIComponent(entityCode)
+                    } else {
+                      finalKey += entityCode
+                    }
+                  }
+                }
+                return finalKey
+              }
+              var prefix = (url.indexOf('?') > 0 ? '&' : '?') + wd + '='
+              if (proSign == 2) {
+                prefix = encodeURIComponent(prefix)
+              }
+              key = HtmlEncodeAndComponent(key)
+              var dyTabStrUrl = hasTabStr && '' ? '&dyTabStr=' + '' : ''
+              return url + prefix + key + dyTabStrUrl
+            }
+          }
+        })(commonHeaderConf.searchInputId)
+      </script>
+      <div class="s_tab" id="bdpcImgTab">
+        <div id="bdpcImgTopTab"></div>
+      </div>
+      <script>
+        var imgMainSearch = document.getElementById('imgMainSearch')
+        var imgSearchBox = document.getElementById('imgSearchBox')
+        var bdpcImgTab = document.getElementById('bdpcImgTab')
+        var bdpcImgTopTab = document.getElementById('bdpcImgTopTab')
+        // 图片下标 是固定的
+        var BASE_INDEX = 3
+
+        //tab布局
+        var tabListDom = []
+        var tabMapKeys = Object.keys(TAB_MAP)
+        for (var i = 0; i < tabMapKeys.length; i++) {
+          var item = TAB_MAP[i]
+          if (i === BASE_INDEX) {
+            tabListDom.push('<b class="s_tab_item s_tab_img">图片</b>')
+          } else {
+            tabListDom.push('<a class="s_tab_item s_tab_' + item.ename + '" onmousedown="setHeadUrl(this)" href="#" name="i_' + item.ename + '" >' + item.name + '</a>')
+          }
+        }
+
+        var dyTabStr = Base64.fromBase64('')
+        var dyTabStrArr = dyTabStr.split(',').map(function (item) {
+          return parseInt(item)
+        })
+        dyTabStrArr = fixTab(dyTabStrArr)
+        var isCorrectTab = tabTest(dyTabStrArr)
+        var cTab = isCorrectTab ? dyTabStrArr : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        var innerHTML = ''
+        cTab.forEach(function (item) {
+          innerHTML += tabListDom[item]
+        })
+
+        function fixTab(arr) {
+          if (arr.length < 10) {
+            return arr
+          }
+          var normalArr = arr.slice(0, 9)
+          if (normalArr.indexOf(BASE_INDEX) === -1) {
+            normalArr[8] = BASE_INDEX
+          }
+          normalArr.push(9)
+          return normalArr
+        }
+
+        function tabTest(dyTabStrArr) {
+          if (dyTabStrArr.length < 10 || dyTabStrArr[0] !== 0 || dyTabStrArr[9] !== 9) {
+            return false
+          }
+          var tabMap = [true, 1, 2, 3, 4, 5, 6, 7, 8, true, 10]
+          for (var i = 1; i < 9; i++) {
+            if (tabMap.indexOf(dyTabStrArr[i]) !== -1 && tabMap[dyTabStrArr[i]] !== true) {
+              tabMap[dyTabStrArr[i]] = true
+            } else {
+              return false
+            }
+          }
+          return true
+        }
+        bdpcImgTopTab.insertAdjacentHTML('beforebegin', innerHTML)
+
+        var setSearchStyle = function (flag) {
+          var winWidth = window.innerWidth || (document.documentElement && document.documentElement.clientWidth) || (document.body && document.body.clientWidth)
+          if (imgMainSearch && imgSearchBox && bdpcImgTab && bdpcImgTopTab && winWidth > 1920) {
+            bdpcImgTopTab.className = 's_imgtop_tab'
+            imgMainSearch.className = 's_img_search'
+          } else if (flag) {
+            imgMainSearch.className = ''
+            bdpcImgTopTab.className = ''
+          }
+        }
+
+        setSearchStyle()
+
+        window.onresize = function () {
+          setSearchStyle(1)
+        }
+      </script>
+      <div class="top-info-bar-wrapper">
+        <div id="topInfoBar">
+          <div id="resultInfo" style="font-size: 13px">找到相关图片约791,000张</div>
+          <div id="newImgFilter">
+            <div class="new-filter-container filter">
+              <div id="typeFilter" class="typeFilter"></div>
+              <div id="sizeFilter" class="subFilter sizeFilter"></div>
+              <div id="colorFilter" class="subFilter"></div>
+            </div>
+          </div>
+          <div id="timeliness" class="hotpot-container"></div>
+          <script type="text/juicer" id="timeliness-tpl">
+            <div id="timeliness-bless">
+                <div class="blessing-img-wrapper">
+                    <img class="blessing-img" src="${icon.normal}" alt="" />
+                    <img class="blessing-img icon-zoomup" src="${icon.normal}" alt="" />
+                </div>
+                <span class="blessing-content">
+                    ${title}
+                </span>
+                <div class="blessing-count-wrapper">
+                    (<span class="blessing-count"></span>人)
+                </div>
+            </div>
+            <div class="egg">
+                <img class="blessing-img-egg" src="${egg}" alt="" />
+            </div>
+          </script>
+          <div id="avfilter"></div>
+          <div class="top-bar-mask"></div>
+        </div>
+      </div>
+      <div id="specialQuery"></div>
+      <div id="browser-hotword"></div>
+    </div>
+
+    <script>
+      window.vsid = '2f49f011b772f2af5dffdbe01345473f8f39c2d2'
+    </script>
+    <div id="wrapper">
+      <div id="pnlBeforeContent">
+        <div class="news-slider"></div>
+        <div id="smeContainer" style="display: none"></div>
+      </div>
+      <div id="imgContainer" class="cg_avatar">
+        <div id="timeliness-title">
+          <img class="blessing-img guideIcon" src="" />
+          <span class="timeliness-desc"></span>
+        </div>
+        <div id="pnlBeforeImgList">
+          <div class="memory-con" id="memoryBar" style="display: none">
+            您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span
+            ><a class="memory-close"></a>
+          </div>
+          <p style="margin: 20px 0px 5px 0; font: bold 14px '宋体'; color: #333; display: none"><span>根据相关法律法规和政策，部分搜索结果未予显示。</span></p>
+        </div>
+        <div id="specialRecommend"></div>
+
+        <div id="imgid"></div>
+        <div id="lastPage" style="position: relative; overflow: hidden; padding-left: 50px; zoom: 1; display: none">
+          为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="/">点此查看更多搜索结果</a>。
+        </div>
+        <div id="ajaxInfo"></div>
+        <div id="noPage">
+          <div id="dataNone" style="margin: 0 0 0 15px; font-size: 14px; line-height: 20px">抱歉，在该筛选条件下，没有找到与<font color="#C60A00">狗</font>相关的图片。</div>
+          <div id="stdNone" style="margin: 0 0 0 15px; font-size: 14px; line-height: 20px">
+            <br />
+            <br />
+            <font class="fB" style="font-size: 14px">百度建议您：</font>
+            <div style="font-size: 14px; margin-top: 0px">
+              <li id="listSetDefault">
+                将筛选功能<a
+                  href="/search/index?ct=201326592&z=&s=&tn=baiduimage&ipn=r&word=%E7%8B%97&ie=utf-8&oe=utf-8&lm=-1&hd=0&latest=0&copyright=0&st=-1&z=&se=0&fr=&pn=0&width=&height=&face=0&ct=503316480"
+                  onclick=""
+                  >恢复默认状态</a
+                >
+              </li>
+              <li>修改当前的筛选条件</li>
+              <li>看看输入的文字是否有误</li>
+            </div>
+            <div id="DivPost" style="margin-top: 0px; margin-left: 15px"></div>
+          </div>
+        </div>
+        <link rel="stylesheet" href="//img1.bdstatic.com/static/searchresult/mediacyFont/iconfont_c4b6d32.css" />
+      </div>
+      <div style="clear: both"></div>
+      <p href="javascript:void(0);" id="loading"></p>
+      <div id="pageMoreWrap">
+        <a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+      </div>
+      <div id="pnlAfterContent" style="display: none">
+        <div id="cmsimage">
+          <div id="hotWordDiv"></div>
+        </div>
+        <div id="relecom54"></div>
+      </div>
+    </div>
+    <div id="righter">
+      <div id="righter-wrapper">
+        <div id="righter-content">
+          <div class="mediacy-upper">
+            <div class="mediacy">
+              <div class="img-loading"></div>
+              <img class="mediacy-img" src="" draggable="false" />
+            </div>
+            <div class="mediacy-close">
+              <i class="mediacyIcon icon-a-guanbi"> </i>
+            </div>
+            <div class="mediacy-pre-btn">
+              <i class="mediacyIcon icon-a-jiantou-zuo"></i>
+            </div>
+            <div class="mediacy-next-btn">
+              <i class="mediacyIcon icon-a-jiantou-you"></i>
+            </div>
+          </div>
+          <div class="mediacy-card-wrapper">
+            <div id="mediacy-toolbar" class="mediacy-toolbar">
+              <div id="mediacy-zoom">
+                <span id="btnZoomIn" hidefocus="true" log-click="p=5.36"> <i class="mediacyIcon icon-a-jiahao"></i></span>
+                <label id="zoomScale">100%</label>
+                <span id="btnZoomOut" hidefocus="true" log-click="p=5.36"> <i class="mediacyIcon icon-a-jianhao"></i></span>
+              </div>
+              <div class="toPhone-wrap">
+                <span class="btn-toPhone" hidefocus="true" log-click="p=5.50"> <i class="mediacyIcon icon-a-shouji"></i>扫描到手机</span>
+              </div>
+              <a class="btn-download" target="_self" hidefocus="true" href="" log-click="p=5.42"> <i class="mediacyIcon icon-a-xiazai"></i>下载</a>
+              <a class="btn-shitu" href="" hidefocus="true" log-click="p=5.46"> <i class="mediacyIcon icon-a-shitu"></i>按图搜索</a>
+              <span id="report_link" class="reportlink" hidefocus="true" log-click="p=5.408"> <i class="mediacyIcon icon-a-fankui"></i>反馈</span>
+            </div>
+            <div class="imgInfoPnl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="loginbar" style="display: none">
+      <div class="loginbar-inner">
+        <div class="login-png"></div>
+        <a class="baidulogin" href="javascript:;">百度账号登陆</a> <span>或</span> <a class="baidureg" href="javascript:void(0);">注册</a>
+      </div>
+      <a class="loginbar-close" href="javascript:;">关闭</a>
+    </div>
+    <script>
+      window.alogObjectConfig = {
+        product: '11',
+        page: '2',
+        speed_page: '2',
+
+        speed: {
+          sample: '0.01'
+        },
+
+        monkey: {
+          sample: '0.01'
+        },
+
+        exception: {
+          sample: '0.01'
+        },
+
+        feature: {
+          sample: '0.01'
+        },
+
+        cus: {
+          sample: '0.01'
+        },
+
+        csp: {
+          sample: '0.01',
+          'default-src': [
+            { match: '*bae.baidu.com', target: 'Accept,Warn' },
+            { match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept' },
+            { match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept' },
+            { match: '*', target: 'Accept,Warn' }
+          ]
+        }
+      }
+
+      // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在上面的window.alogObjectConfig配置之后
+      void (function (a, b, c, d, e, f, g) {
+        ;(a.alogObjectName = e),
+          (a[e] =
+            a[e] ||
+            function () {
+              ;(a[e].q = a[e].q || []).push(arguments)
+            }),
+          (a[e].l = a[e].l || +new Date()),
+          (d = 'https:' === a.location.protocol ? 'https://fex.bdstatic.com' + d : 'http://fex.bdstatic.com' + d)
+        var h = !0
+        if (a.alogObjectConfig && a.alogObjectConfig.sample) {
+          var i = Math.random()
+          ;(a.alogObjectConfig.rand = i), i > a.alogObjectConfig.sample && (h = !1)
+        }
+        h &&
+          ((f = b.createElement(c)),
+          (f.async = !0),
+          (f.src = d + '?v=' + ~(new Date() / 864e5) + ~(new Date() / 864e5)),
+          (g = b.getElementsByTagName(c)[0]),
+          g.parentNode.insertBefore(f, g))
+      })(window, document, 'script', '/hunter/alog/alog.min.js', 'alog'),
+        void (function () {
+          function a() {}
+          window.PDC = {
+            mark: function (a, b) {
+              alog('speed.set', a, b || +new Date()), alog.fire && alog.fire('mark')
+            },
+            init: function (a) {
+              alog('speed.set', 'options', a)
+            },
+            view_start: a,
+            tti: a,
+            page_ready: a
+          }
+        })()
+      void (function (n) {
+        var o = !1
+        ;(n.onerror = function (n, e, t, c) {
+          var i = !0
+          return !e && /^script error/i.test(n) && (o ? (i = !1) : (o = !0)), i && alog('exception.send', 'exception', { msg: n, js: e, ln: t, col: c }), !1
+        }),
+          alog('exception.on', 'catch', function (n) {
+            alog('exception.send', 'exception', { msg: n.msg, js: n.path, ln: n.ln, method: n.method, flag: 'catch' })
+          })
+      })(window)
+    </script>
+    <script>
+      void (function (e, t) {
+        for (
+          var n = t.getElementsByTagName('img'),
+            a = +new Date(),
+            i = [],
+            o = function () {
+              this.removeEventListener && this.removeEventListener('load', o, !1), i.push({ img: this, time: +new Date() })
+            },
+            s = 0;
+          s < n.length;
+          s++
+        )
+          !(function () {
+            var e = n[s]
+            e.addEventListener
+              ? !e.complete && e.addEventListener('load', o, !1)
+              : e.attachEvent &&
+                e.attachEvent('onreadystatechange', function () {
+                  'complete' == e.readyState && o.call(e, o)
+                })
+          })()
+        alog('speed.set', { fsItems: i, fs: a })
+      })(window, document)
+    </script>
+    <div id="fixBtn">
+      <div id="common-back-top" data-title="返回顶部"><div class="btn-inner-text">返回顶部</div></div>
+      <div id="common-feedback-link" data-title="反馈图片"><div class="common-feedback-text">用户反馈</div></div>
+    </div>
+
+    <script>
+      ;(function () {
+        var pos = ''
+        if (pos == 1) {
+          pos = '-title'
+        } else if (pos == 3) {
+          pos = '-more'
+        } else {
+          pos = ''
+        }
+
+        document.addEventListener &&
+          document.addEventListener(
+            'DOMContentLoaded',
+            function () {
+              var net = 0
+              var isPreLoaded = 0
+              var start = speed.get('start')
+
+              if (window.performance) {
+                net = window.performance.timing.navigationStart
+              }
+              net && speed.mark('net', start - net)
+              speed.mark('preloaded', isPreLoaded)
+              speed.mark('domc')
+              // 针对chrome细分数据
+              if (window.performance && window.performance.timing) {
+                var timing = window.performance.timing
+                // tcp connct时间
+                speed.mark('dnst', timing.domainLookupEnd - timing.domainLookupStart)
+                // dns解析时间
+                speed.mark('cot', timing.connectEnd - timing.connectStart)
+                // 首字节返回时间点
+                speed.mark('rpnt', timing.responseStart)
+                if (net) {
+                  // tc跳板时间
+                  speed.mark('tct', timing.navigationStart - net)
+                  // 网络开始时间点
+                  speed.mark('nets', net)
+                }
+                speed.mark('connectStart', timing.connectStart)
+              }
+            },
+            false
+          )
+
+        var addWindowEvent = window.addEventListener
+          ? function (type, fn) {
+              window.addEventListener(type, fn, false)
+            }
+          : function (type, fn) {
+              window.attachEvent('on' + type, fn)
+            }
+        addWindowEvent('load', function () {
+          var url = location.href
+          url = url.replace(/&ctd=([^&]+)/, '')
+          if (url) {
+            window.history && window.history.replaceState && window.history.replaceState(null, '', url + '')
+          }
+
+          speed.mark('load')
+          LazySend()
+        })
+
+        function LazySend() {
+          if (speed.firstScCount >= 5) {
+            speed.mark('frm', '')
+            speed.send()
+          } else {
+            setTimeout(LazySend, 1000)
+          }
+        }
+      })()
+    </script>
+    <script>
+      ;(function () {
+        if (window._alaEnter && window._alaEnter !== true) {
+          window._alaEnter('end')
+          var oldOnerror = window.onerror
+          window.onerror = function (msg, source, lineno, colno) {
+            try {
+              oldOnerror && oldOnerror.apply(window, arguments)
+              var str = 'error&source=' + source + '&msg=' + msg + '&ln=' + lineno + '&cn=' + colno
+              window._alaEnter(str)
+            } catch (e) {}
+          }
+        }
+      })()
+    </script>
+    <script></script>
+    <script>
+      void (function (a, b, c, d, e, f) {
+        function g(b) {
+          a.attachEvent ? a.attachEvent('onload', b, !1) : a.addEventListener && a.addEventListener('load', b)
+        }
+        function h(a, c, d) {
+          d = d || 15
+          var e = new Date()
+          e.setTime(new Date().getTime() + 1e3 * d), (b.cookie = a + '=' + escape(c) + ';path=/;expires=' + e.toGMTString())
+        }
+        function i(a) {
+          var c = b.cookie.match(new RegExp('(^| )' + a + '=([^;]*)(;|$)'))
+          return null != c ? unescape(c[2]) : null
+        }
+        function j() {
+          var a = i('PMS_JT')
+          if (a) {
+            h('PMS_JT', '', -1)
+            try {
+              ;(a = a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/)), (a = a && a[1] && a[2] ? { s: parseInt(a[1]), r: a[2] } : {})
+            } catch (c) {
+              a = {}
+            }
+            ;(a.r && b.referrer.replace(/#.*/, '') != a.r) || alog('speed.set', 'wt', a.s)
+          }
+        }
+        if (a.alogObjectConfig) {
+          var k = a.alogObjectConfig.sample,
+            l = a.alogObjectConfig.rand
+          ;(d = 'https:' === a.location.protocol ? 'https://fex.bdstatic.com' + d : 'http://fex.bdstatic.com' + d),
+            (k && l && l > k) ||
+              (g(function () {
+                alog('speed.set', 'lt', +new Date()),
+                  (e = b.createElement(c)),
+                  (e.async = !0),
+                  (e.src = d + '?v=' + ~(new Date() / 864e5) + ~(new Date() / 864e5)),
+                  (f = b.getElementsByTagName(c)[0]),
+                  f.parentNode.insertBefore(e, f)
+              }),
+              j())
+        }
+      })(window, document, 'script', '/hunter/alog/dp.min.js')
+    </script>
+  </body>
+  <script type="text/javascript" src="//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js"></script>
+  <script type="text/javascript" src="//img1.bdstatic.com/static/common/widget/ui/browser-storage/browser-storage_ad6bd42.js"></script>
+  <script type="text/javascript" src="//img1.bdstatic.com/static/common/pkg/cores_451d70c.js"></script>
+  <script type="text/javascript" src="//img0.bdstatic.com/static/common/widget/verificationCode/useAIVerificationCode_fe7964c.js"></script>
+  <script type="text/javascript" src="//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js"></script>
+  <script type="text/javascript" src="//img0.bdstatic.com/static/searchresult/pkg/result_403c24a.js"></script>
+  <script type="text/javascript">
+    !(function () {
+      window._alaEnter && window._alaEnter !== true && window._alaEnter('sample')
+      var sample = { IMAGE_PC_DETAIL: '2' }
+      var keyValue = ''
+      for (var name in sample) {
+        keyValue += name + ':' + sample[name] + ','
+      }
+      window.samplekeyAll = sample
+      window.samplekey = keyValue.substr(0, keyValue.length - 1)
+    })()
+    !(function () {
+      // ala进入问题调查
+      window._alaEnter && window._alaEnter !== true && window._alaEnter('prerequire')
+      require.async(['searchresult:widget/ui/app/app'], function (app) {
+        window._alaEnter && window._alaEnter !== true && window._alaEnter('postrequire')
+        require.async(['searchresult:widget/ui/action/base/base'])
+        require.async(['searchresult:widget/ui/base/common/common'])
+        app.setPageInfo({
+          detailSwitch: '0',
+          preOpenMediacyPn: -1,
+          // 在后端对query进行抽样的时候，用这个来统计实验组和对照组
+          queryPageType: '0',
+          tag_type: '',
+          tag: '',
+          subtag: '',
+          gsm: '1e',
+          listNum: '1857',
+          dispNum: '791334',
+          bdIsClustered: '0',
+          fr: '',
+          sme: '',
+          ie: 'utf-8',
+          oe: 'utf-8',
+          fInsertNum: '0',
+          queryWordEnc: '%E7%8B%97',
+          queryWordGBKEnc: '%B9%B7',
+          word: '狗',
+          queryWord: '狗',
+          queryUrlWord: '%E7%8B%97',
+          bdFmtDispNum: '约791,000',
+          bdSearchTime: '',
+          gbkword: '%B9%B7',
+          resTabs: [],
+          userid: '',
+          useSign: '',
+          userNumID: '', // 这个才是真正的 userid
+          encodeUserNumId: '',
+          spaceUrl: '',
+          hasUserName: '' == '0',
+          bdstoken: '',
+          thirdLogo: '0', // 第三方网站登录的logo，为空则不显示
+          se: '',
+          needIE: '1',
+          jit: '',
+          showHot: '',
+          hasResult: '1',
+          aspSID: '',
+          oriquery: '',
+          fm: 'index',
+          hs: '0',
+          adBigPicPos: -1,
+          cms_gonggao:
+            '{"store":{"text":"\u7535\u8111\u7aef\u201c\u6211\u7684\u56fe\u7247\u201d\u529f\u80fd\u5373\u5c06\u4e0b\u7ebf\u8bf7\u60a8\u63d0\u524d\u4e0b\u8f7d\u60a8\u9700\u8981\u7684\u56fe\u7247\u3002","url":"https:\/\/image.baidu.com\/img\/image\/notice\/"},"copyrighttips":{"text":"\u9ad8\u6e05\u6b63\u7248\u56fe\u4e0a\u7ebf\u4e86\uff5e","id":0},"agingswitch":{"switch":0}}',
+          checkHttps: 0,
+          strategyType: 'normal',
+          personalized: '0'
+        })
+        app.setData('jsConfs', {
+          normal: {
+            margin: 0,
+            padding: 8,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 0
+          },
+          comic: {
+            margin: 5,
+            padding: 0,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 0
+          },
+          ald: {
+            margin: 5,
+            padding: 0,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 0
+          },
+          star: {
+            margin: 16,
+            padding: 0,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 0
+          },
+          avatar_brand: {
+            margin: 16,
+            padding: 0,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 320,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 500,
+            pageMoreNum: 10,
+            leftMenu: 0
+          },
+          avatar_star: {
+            margin: 16,
+            padding: 0,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 0
+          },
+          mediacy_weak: {
+            margin: 0,
+            padding: 8,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 624
+          },
+          mediacy_normal: {
+            margin: 0,
+            padding: 8,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 816
+          },
+          mediacy_strong: {
+            margin: 0,
+            padding: 8,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 1008
+          },
+          avatar_head: {
+            margin: 0,
+            padding: 8,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 330
+          },
+          avatar_wallpaper: {
+            margin: 0,
+            padding: 8,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 3,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 330
+          },
+          single: {
+            margin: 5,
+            padding: 0,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 1,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 0
+          },
+          personalized: {
+            margin: 5,
+            padding: 0,
+            pageNumHeight: 33,
+            lineHeight: 160,
+            maxBaseLineHeight: 160,
+            minBaseLineHeight: 160,
+            pageLineNum: 2,
+            pageImgLimit: 20,
+            imgDigestHeight: 0,
+            maxImgWidth: 400,
+            pageMoreNum: 10,
+            leftMenu: 0
+          }
+        })
+        app.setData('imgData', {
+          queryEnc: '%E7%8B%97',
+          displayNum: 791334,
+          bdIsClustered: '0',
+          listNum: 1857,
+          bdFmtDispNum: '791334',
+          bdSearchTime: '',
+          isNeedAsyncRequest: 0,
+          data: [
+            {
+              thumbURL: 'https://img0.baidu.com/it/u=4073830631,3465103935&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=352',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20181125%2F20181125101307_0b75dec001d7207ed3edb55e3b668aae_1.jpeg&refer=http%3A%2F%2F05imgmini.eastday.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=aef2ba1bea20884a742a405011000f32',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20181125%2F20181125101307_0b75dec001d7207ed3edb55e3b668aae_1.jpeg&refer=http%3A%2F%2F05imgmini.eastday.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=aef2ba1bea20884a742a405011000f32',
+                  FromURL: 'http:\/\/www.phbang.cn\/pics\/2020\/277060.html',
+                  FromUrl: 'http:\/\/www.phbang.cn\/pics\/2020\/277060.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img0.baidu.com/it/u=4073830631,3465103935&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=352',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img0.baidu.com/it/u=4073830631,3465103935&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=352',
+              pageNum: 0,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20181125%2F20181125101307_0b75dec001d7207ed3edb55e3b668aae_1.jpeg&refer=http%3A%2F%2F05imgmini.eastday.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=aef2ba1bea20884a742a405011000f32',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Brikwg2_z&e3BvgAzdH3FrtvfAzdH3FdadaAzdH3Fd00ama_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Brikwg2_z&e3BvgAzdH3FrtvfAzdH3FdadaAzdH3Fd00ama_z&e3Bip4s',
+              fromURLHost: 'www.phbang.cn',
+              currentIndex: '',
+              width: 640,
+              height: 450,
+              type: 'jpeg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '78653600_224_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2017-01-08 10:27',
+              fromPageTitle: '最温和的狗_温和的狗图片_中国排行网',
+              fromPageTitleEnc: '最温和的狗_温和的狗图片_中国排行网',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '2181933383,2124377967',
+              os: '177426608,509729780',
+              simid: '4249671535,570194736',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '83b5d3',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img0.baidu.com/it/u=3226783590,4049882211&fm=253&fmt=auto&app=138&f=JPEG?w=699&h=500',
+              replaceUrl: [
+                {
+                  ObjURL: 'https:\/\/ss0.baidu.com\/-Po3dSag_xI4khGko9WTAnF6hhy\/zhidao\/pic\/item\/0ff41bd5ad6eddc4da68cd7b39dbb6fd536633a6.jpg',
+                  ObjUrl: 'https:\/\/ss0.baidu.com\/-Po3dSag_xI4khGko9WTAnF6hhy\/zhidao\/pic\/item\/0ff41bd5ad6eddc4da68cd7b39dbb6fd536633a6.jpg',
+                  FromURL: 'http:\/\/power.baidu.com\/question\/472441153.html?qbl=relate_question_3',
+                  FromUrl: 'http:\/\/power.baidu.com\/question\/472441153.html?qbl=relate_question_3'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img0.baidu.com/it/u=3226783590,4049882211&fm=253&fmt=auto&app=138&f=JPEG?w=699&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img0.baidu.com/it/u=3226783590,4049882211&fm=253&fmt=auto&app=138&f=JPEG?w=699&h=500',
+              pageNum: 1,
+              objURL: 'https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/0ff41bd5ad6eddc4da68cd7b39dbb6fd536633a6.jpg',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fr5oj6_z&e3Bkwt17_z&e3Bv54AzdH3Fq7jfpt5gAzdH3F90d9988cn_z&e3Bip4s?qks=6jswpj_q7jfpt5g_n',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fr5oj6_z&e3Bkwt17_z&e3Bv54AzdH3Fq7jfpt5gAzdH3F90d9988cn_z&e3Bip4s?qks=6jswpj_q7jfpt5g_n',
+              fromURLHost: 'power.baidu.com',
+              currentIndex: '',
+              width: 1024,
+              height: 732,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2240817312_230_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2013-01-05 18:56',
+              fromPageTitle: '萌狗照片_百度知道',
+              fromPageTitleEnc: '萌狗照片_百度知道',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3259570935,3337890453',
+              os: '1659965000,914687644',
+              simid: '3301184904,3120070275',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '627f1a',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img1.baidu.com/it/u=3877894458,3993871984&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi2%2F2213337071196%2FO1CN01TFvSww1KhoS8KRihH_%21%212213337071196.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=969d71865ee5d80dd859482837863093',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi2%2F2213337071196%2FO1CN01TFvSww1KhoS8KRihH_%21%212213337071196.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=969d71865ee5d80dd859482837863093',
+                  FromURL: 'http:\/\/www.350t.com\/k\/%C7%EF%CC%EF%C8%AE%B3%E8%CE%EF%B9%B7\/',
+                  FromUrl: 'http:\/\/www.350t.com\/k\/%C7%EF%CC%EF%C8%AE%B3%E8%CE%EF%B9%B7\/'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img1.baidu.com/it/u=3877894458,3993871984&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img1.baidu.com/it/u=3877894458,3993871984&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+              pageNum: 2,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi2%2F2213337071196%2FO1CN01TFvSww1KhoS8KRihH_%21%212213337071196.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=969d71865ee5d80dd859482837863093',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bncap_z&e3Bv54AzdH3FhAzdH3F%C0%EF%CC%EF%Cb%AE%Bn%Eb%CE%EF%Bl%B0AzdH3F',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bncap_z&e3Bv54AzdH3FhAzdH3F%C0%EF%CC%EF%Cb%AE%Bn%Eb%CE%EF%Bl%B0AzdH3F',
+              fromURLHost: 'www.350t.com',
+              currentIndex: '',
+              width: 800,
+              height: 800,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2216700064_230_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2019-05-01 15:40',
+              fromPageTitle: '秋田犬宠物狗-特价促销-优惠券领取-价格|多少钱|什么牌子好-35优惠券',
+              fromPageTitleEnc: '秋田犬宠物狗-特价促销-优惠券领取-价格|多少钱|什么牌子好-35优惠券',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3462592880,3354519421',
+              os: '1930106180,1094114591',
+              simid: '3462592880,3354519421',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '16bc8e',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img0.baidu.com/it/u=3548658233,841981256&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=378',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fzumengchong.com%2Fuploads%2Fallimg%2F200505%2F1-200505115253.jpg&refer=http%3A%2F%2Fzumengchong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c736bca3ac4eee791f7ce831da5dc436',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fzumengchong.com%2Fuploads%2Fallimg%2F200505%2F1-200505115253.jpg&refer=http%3A%2F%2Fzumengchong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c736bca3ac4eee791f7ce831da5dc436',
+                  FromURL: 'http:\/\/zumengchong.com\/dwpz\/2190.html',
+                  FromUrl: 'http:\/\/zumengchong.com\/dwpz\/2190.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img0.baidu.com/it/u=3548658233,841981256&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=378',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img0.baidu.com/it/u=3548658233,841981256&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=378',
+              pageNum: 3,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzumengchong.com%2Fuploads%2Fallimg%2F200505%2F1-200505115253.jpg&refer=http%3A%2F%2Fzumengchong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c736bca3ac4eee791f7ce831da5dc436',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fz74jg2vi5g2_z&e3Bv54AzdH3F1orzAzdH3Fd8la_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fz74jg2vi5g2_z&e3Bv54AzdH3F1orzAzdH3Fd8la_z&e3Bip4s',
+              fromURLHost: 'zumengchong.com',
+              currentIndex: '',
+              width: 600,
+              height: 454,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '99625120_1251_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2020-05-05 11:52',
+              fromPageTitle: '八哥犬图片价格多少钱一只 巴哥狗怎么挑选_萌宠租赁网',
+              fromPageTitleEnc: '八哥犬图片价格多少钱一只 巴哥狗怎么挑选_萌宠租赁网',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '41372721,273346614',
+              os: '3685935532,760766021',
+              simid: '4106603425,438221517',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '3421aa',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img1.baidu.com/it/u=3230054308,295169067&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg.ivsky.com%2FPhoto%2FUploadFiles%2F2006-10-3%2F200610363059622.jpg&refer=http%3A%2F%2Fimg.ivsky.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c41b43d0f419941cf89f07d6211f428b',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg.ivsky.com%2FPhoto%2FUploadFiles%2F2006-10-3%2F200610363059622.jpg&refer=http%3A%2F%2Fimg.ivsky.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c41b43d0f419941cf89f07d6211f428b',
+                  FromURL: 'http:\/\/www.ivsky.com\/photo\/429\/77675.html',
+                  FromUrl: 'http:\/\/www.ivsky.com\/photo\/429\/77675.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img1.baidu.com/it/u=3230054308,295169067&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img1.baidu.com/it/u=3230054308,295169067&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              pageNum: 4,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.ivsky.com%2FPhoto%2FUploadFiles%2F2006-10-3%2F200610363059622.jpg&refer=http%3A%2F%2Fimg.ivsky.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c41b43d0f419941cf89f07d6211f428b',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Btefhy_z&e3Bv54AzdH3Fri5p5AzdH3F9dlAzdH3F00m0c_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Btefhy_z&e3Bv54AzdH3Fri5p5AzdH3F9dlAzdH3F00m0c_z&e3Bip4s',
+              fromURLHost: 'www.ivsky.com',
+              currentIndex: '',
+              width: 1600,
+              height: 1200,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2251303216_233_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2007-06-26 08:00',
+              fromPageTitle: '狗1 图片信息',
+              fromPageTitleEnc: '狗1 图片信息',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '4186789093,2079838343',
+              os: '1486168788,347201708',
+              simid: '4209599368,745647555',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'dd45e1',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=3375413777,3624421499&fm=253&fmt=auto&app=120&f=JPEG?w=658&h=494',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fcf9b05a63f2b832efef8b4d133c724a642f40d1731caf-lMy9eN_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f9463bae907d349c6aa38f6d83ab74d0',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fcf9b05a63f2b832efef8b4d133c724a642f40d1731caf-lMy9eN_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f9463bae907d349c6aa38f6d83ab74d0',
+                  FromURL: 'http:\/\/huaban.com\/pins\/653619362\/',
+                  FromUrl: 'http:\/\/huaban.com\/pins\/653619362\/'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=3375413777,3624421499&fm=253&fmt=auto&app=120&f=JPEG?w=658&h=494',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=3375413777,3624421499&fm=253&fmt=auto&app=120&f=JPEG?w=658&h=494',
+              pageNum: 5,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fcf9b05a63f2b832efef8b4d133c724a642f40d1731caf-lMy9eN_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f9463bae907d349c6aa38f6d83ab74d0',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3Fmcnm8lnmdAzdH3F',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3Fmcnm8lnmdAzdH3F',
+              fromURLHost: 'huaban.com',
+              currentIndex: '',
+              width: 658,
+              height: 494,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '115354064_232_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2016-03-21 14:49',
+              fromPageTitle: '小黄狗侧面',
+              fromPageTitleEnc: '小黄狗侧面',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3982752039,3668468276',
+              os: '1079354891,3177253505',
+              simid: '3483899365,497188933',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'd732a7',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=406800539,896575478&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F10034881144%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=b4be1b05e168631cd966e84bafbe693d',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F10034881144%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=b4be1b05e168631cd966e84bafbe693d',
+                  FromURL: 'http:\/\/kuaibao.qq.com\/s\/20190909A07ASH00?refer=',
+                  FromUrl: 'http:\/\/kuaibao.qq.com\/s\/20190909A07ASH00?refer='
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=406800539,896575478&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=406800539,896575478&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              pageNum: 6,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F10034881144%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=b4be1b05e168631cd966e84bafbe693d',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fh7wtkw5_z&e3Bqq_z&e3Bv54AzdH3FfAzdH3Fda8lalalAa0ASHaa?6juj6=',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fh7wtkw5_z&e3Bqq_z&e3Bv54AzdH3FfAzdH3Fda8lalalAa0ASHaa?6juj6=',
+              fromURLHost: 'kuaibao.qq.com',
+              currentIndex: '',
+              width: 1920,
+              height: 1440,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '93333808_226_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2019-09-09 11:06',
+              fromPageTitle: '狗的小嘴太可爱了,嘴和鼻子的距离也太近了吧-看点快报',
+              fromPageTitleEnc: '狗的小嘴太可爱了,嘴和鼻子的距离也太近了吧-看点快报',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '1866323547,2186406949',
+              os: '2967507467,2798206766',
+              simid: '1866323547,2186406949',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '064129',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img1.baidu.com/it/u=1243702083,319092395&fm=253&fmt=auto&app=138&f=JPEG?w=352&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpicnew5.photophoto.cn%2F20110525%2Fkeaidexiaogoutupian-09795086_1.jpg&refer=http%3A%2F%2Fpicnew5.photophoto.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=b417fc8d6bf69a38960f1ef15c75c708',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpicnew5.photophoto.cn%2F20110525%2Fkeaidexiaogoutupian-09795086_1.jpg&refer=http%3A%2F%2Fpicnew5.photophoto.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=b417fc8d6bf69a38960f1ef15c75c708',
+                  FromURL: 'http:\/\/www1.photophoto.cn\/tupian\/keaidexiaogoutupian-09795086.html',
+                  FromUrl: 'http:\/\/www1.photophoto.cn\/tupian\/keaidexiaogoutupian-09795086.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img1.baidu.com/it/u=1243702083,319092395&fm=253&fmt=auto&app=138&f=JPEG?w=352&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img1.baidu.com/it/u=1243702083,319092395&fm=253&fmt=auto&app=138&f=JPEG?w=352&h=500',
+              pageNum: 7,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpicnew5.photophoto.cn%2F20110525%2Fkeaidexiaogoutupian-09795086_1.jpg&refer=http%3A%2F%2Fpicnew5.photophoto.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=b417fc8d6bf69a38960f1ef15c75c708',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo8_z&e3Bri5p5ri5p5_z&e3BvgAzdH3Fp7rtwgAzdH3Fhjwt1jxtw5257p7rtwg-al0lcabm_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo8_z&e3Bri5p5ri5p5_z&e3BvgAzdH3Fp7rtwgAzdH3Fhjwt1jxtw5257p7rtwg-al0lcabm_z&e3Bip4s',
+              fromURLHost: 'www1.photophoto.cn',
+              currentIndex: '',
+              width: 694,
+              height: 987,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2261789136_230_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2011-05-25 00:00',
+              fromPageTitle: '可爱的小狗图片图片-图行天下图库',
+              fromPageTitleEnc: '可爱的小狗图片图片-图行天下图库',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '2876341444,209885024',
+              os: '3223136835,960582747',
+              simid: '2876341444,209885024',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '0c768b',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=2380400457,2839065658&fm=253&fmt=auto&app=138&f=JPEG?w=323&h=202',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fwww.dishen.com%2FUploadImages%2FArticle%2FPicture%2F0%2F893%2F893670_20220720130331961_1.jpg&refer=http%3A%2F%2Fwww.dishen.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=420b85d78ac32f24101c67e1728b125b',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fwww.dishen.com%2FUploadImages%2FArticle%2FPicture%2F0%2F893%2F893670_20220720130331961_1.jpg&refer=http%3A%2F%2Fwww.dishen.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=420b85d78ac32f24101c67e1728b125b',
+                  FromURL: 'http:\/\/www.dishen.com\/jm\/893670.html',
+                  FromUrl: 'http:\/\/www.dishen.com\/jm\/893670.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=2380400457,2839065658&fm=253&fmt=auto&app=138&f=JPEG?w=323&h=202',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=2380400457,2839065658&fm=253&fmt=auto&app=138&f=JPEG?w=323&h=202',
+              pageNum: 8,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.dishen.com%2FUploadImages%2FArticle%2FPicture%2F0%2F893%2F893670_20220720130331961_1.jpg&refer=http%3A%2F%2Fwww.dishen.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=420b85d78ac32f24101c67e1728b125b',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B1tfijg_z&e3Bv54AzdH3F34AzdH3Fblnm0a_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B1tfijg_z&e3Bv54AzdH3F34AzdH3Fblnm0a_z&e3Bip4s',
+              fromURLHost: 'www.dishen.com',
+              currentIndex: '',
+              width: 323,
+              height: 202,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '90187936_221_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2018-09-09 00:00',
+              fromPageTitle: '梦到凶猛的狗是胎梦吗,梦到狗是什么意思-帝神算命网',
+              fromPageTitleEnc: '梦到凶猛的狗是胎梦吗,梦到狗是什么意思-帝神算命网',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '316654392,2167471846',
+              os: '1901051298,845836213',
+              simid: '4251522152,897953296',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '276368',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'http://t13.baidu.com/it/u=3615140351,4091934929&fm=224&app=112&f=JPEG?w=500&h=483',
+              replaceUrl: [
+                {
+                  ObjURL: 'https:\/\/m.kongfz.com\/item\/30101559\/?for=baidu',
+                  ObjUrl: 'https:\/\/m.kongfz.com\/item\/30101559\/?for=baidu',
+                  FromURL: 'https:\/\/m.kongfz.com\/item\/30101559\/?for=baidu',
+                  FromUrl: 'https:\/\/m.kongfz.com\/item\/30101559\/?for=baidu'
+                }
+              ],
+              adType: '0',
+              middleURL: 'http://t13.baidu.com/it/u=3615140351,4091934929&fm=224&app=112&f=JPEG?w=500&h=483',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'http://t13.baidu.com/it/u=3615140351,4091934929&fm=224&app=112&f=JPEG?w=500&h=483',
+              pageNum: 9,
+              objURL: 'https://m.kongfz.com/item/30101559/?for=baidu',
+              fromURL: 'ipprf_z2C$qAzdH3FAzdH3F4_z&e3Bh5g2uz_z&e3Bv54AzdH3Ftpj4AzdH3Fna8a8cclAzdH3F?u56=kwt17',
+              fromJumpUrl: 'ipprf_z2C$qAzdH3FAzdH3F4_z&e3Bh5g2uz_z&e3Bv54AzdH3Ftpj4AzdH3Fna8a8cclAzdH3F?u56=kwt17',
+              fromURLHost: 'm.kongfz.com',
+              currentIndex: '',
+              width: 800,
+              height: 772,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '62925104_1250_0_0',
+              filesize: '',
+              bdSrcType: '14',
+              di: '58720257',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '',
+              fromPageTitle: '图说狗言狗语',
+              fromPageTitleEnc: '图说狗言狗语',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3615140351,4091934929',
+              os: '488499,4232845824',
+              simid: '3615140351,4091934929',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'd3bb8e',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img1.baidu.com/it/u=1690337816,4247323366&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=701',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fatt2.citysbs.com%2Flinan%2F2021%2F07%2F23%2F15%2Fmiddle_974x1366-151610_v3_11561627024570417_3d08d9e3b8918c8e5f3773d3ab525be3.jpg&refer=http%3A%2F%2Fatt2.citysbs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=4c6ba6dd2052d45635bf278aa1845a34',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fatt2.citysbs.com%2Flinan%2F2021%2F07%2F23%2F15%2Fmiddle_974x1366-151610_v3_11561627024570417_3d08d9e3b8918c8e5f3773d3ab525be3.jpg&refer=http%3A%2F%2Fatt2.citysbs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=4c6ba6dd2052d45635bf278aa1845a34',
+                  FromURL: 'http:\/\/linan.19lou.com\/forum-2235-thread-151251627024571113-1-1.html',
+                  FromUrl: 'http:\/\/linan.19lou.com\/forum-2235-thread-151251627024571113-1-1.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img1.baidu.com/it/u=1690337816,4247323366&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=701',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img1.baidu.com/it/u=1690337816,4247323366&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=701',
+              pageNum: 10,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fatt2.citysbs.com%2Flinan%2F2021%2F07%2F23%2F15%2Fmiddle_974x1366-151610_v3_11561627024570417_3d08d9e3b8918c8e5f3773d3ab525be3.jpg&refer=http%3A%2F%2Fatt2.citysbs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=4c6ba6dd2052d45635bf278aa1845a34',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fstgwg_z&e3B8ls57_z&e3Bv54AzdH3Fu5674-ddnc-pi6jw1-8c8dc8md0ad9c0888n-8-8_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fstgwg_z&e3B8ls57_z&e3Bv54AzdH3Fu5674-ddnc-pi6jw1-8c8dc8md0ad9c0888n-8-8_z&e3Bip4s',
+              fromURLHost: 'linan.19lou.com',
+              currentIndex: '',
+              width: 780,
+              height: 1094,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2240817312_1245_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2021-07-23 15:16',
+              fromPageTitle: '临安,阿拉斯加小公狗在线找女友-家有宠物-临安19楼',
+              fromPageTitleEnc: '临安,阿拉斯加小公狗在线找女友-家有宠物-临安19楼',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '4152232368,1729484720',
+              os: '1500766829,1760653610',
+              simid: '4152232368,1729484720',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '167649',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=146444184,1636523983&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fs2.best-wallpaper.net%2Fwallpaper%2F1920x1080%2F1712%2FFurry-dog-front-view-eyes_1920x1080.jpg&refer=http%3A%2F%2Fs2.best-wallpaper.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f9290c21539897a51ff9881d289bc868',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fs2.best-wallpaper.net%2Fwallpaper%2F1920x1080%2F1712%2FFurry-dog-front-view-eyes_1920x1080.jpg&refer=http%3A%2F%2Fs2.best-wallpaper.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f9290c21539897a51ff9881d289bc868',
+                  FromURL: 'http:\/\/cn.best-wallpaper.net\/furry-dog-front-view-eyes_1920x1080.html',
+                  FromUrl: 'http:\/\/cn.best-wallpaper.net\/furry-dog-front-view-eyes_1920x1080.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=146444184,1636523983&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=146444184,1636523983&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              pageNum: 11,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs2.best-wallpaper.net%2Fwallpaper%2F1920x1080%2F1712%2FFurry-dog-front-view-eyes_1920x1080.jpg&refer=http%3A%2F%2Fs2.best-wallpaper.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f9290c21539897a51ff9881d289bc868',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fvg_z&e3Bkjfp-owssrwrj6_z&e3BgjpAzdH3Fu766y-152-u65gp-etjo-jyjf_8ldax8aba_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fvg_z&e3Bkjfp-owssrwrj6_z&e3BgjpAzdH3Fu766y-152-u65gp-etjo-jyjf_8ldax8aba_z&e3Bip4s',
+              fromURLHost: 'cn.best-wallpaper.net',
+              currentIndex: '',
+              width: 1920,
+              height: 1080,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2248157488_231_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2017-12-11 07:25',
+              fromPageTitle: '壁纸 毛茸茸的狗前视图,眼睛 1920x1080 full hd 2k 高清壁纸, 图片, ',
+              fromPageTitleEnc: '壁纸 毛茸茸的狗前视图,眼睛 1920x1080 full hd 2k 高清壁纸, 图片, ',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '948947623,3363858195',
+              os: '1905184543,3399917183',
+              simid: '4284922157,775672003',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'e90a6f',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=1847655973,1103091453&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201312%2F26%2F20131226151644_KyK5Q.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=1469e5e84f3f8d9024491dfe7dcf732a',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201312%2F26%2F20131226151644_KyK5Q.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=1469e5e84f3f8d9024491dfe7dcf732a',
+                  FromURL: 'http:\/\/www.duitang.com\/blog\/?id=284495834',
+                  FromUrl: 'http:\/\/www.duitang.com\/blog\/?id=284495834'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=1847655973,1103091453&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=1847655973,1103091453&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              pageNum: 12,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201312%2F26%2F20131226151644_KyK5Q.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=1469e5e84f3f8d9024491dfe7dcf732a',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=db99lcbn9',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=db99lcbn9',
+              fromURLHost: 'www.duitang.com',
+              currentIndex: '',
+              width: 1536,
+              height: 2304,
+              type: 'jpeg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '97527968_226_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2014-03-30 19:31',
+              fromPageTitle: '大头狗,牛头梗 - 堆糖,美图壁纸兴趣社区',
+              fromPageTitleEnc: '大头狗,牛头梗 - 堆糖,美图壁纸兴趣社区',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '113672348,879372657',
+              os: '4247406953,79736575',
+              simid: '3474340980,475937082',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '38d2b1',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img0.baidu.com/it/u=2333608760,3838426294&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpicnew5.photophoto.cn%2F20110117%2Fbigequantupian-09822183_1.jpg&refer=http%3A%2F%2Fpicnew5.photophoto.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ebbbd4fb9d046858fe752b54fd02d4b8',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpicnew5.photophoto.cn%2F20110117%2Fbigequantupian-09822183_1.jpg&refer=http%3A%2F%2Fpicnew5.photophoto.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ebbbd4fb9d046858fe752b54fd02d4b8',
+                  FromURL: 'http:\/\/www1.photophoto.cn\/tupian\/bigequantupian-09822183.html',
+                  FromUrl: 'http:\/\/www1.photophoto.cn\/tupian\/bigequantupian-09822183.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img0.baidu.com/it/u=2333608760,3838426294&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img0.baidu.com/it/u=2333608760,3838426294&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',
+              pageNum: 13,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpicnew5.photophoto.cn%2F20110117%2Fbigequantupian-09822183_1.jpg&refer=http%3A%2F%2Fpicnew5.photophoto.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ebbbd4fb9d046858fe752b54fd02d4b8',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo8_z&e3Bri5p5ri5p5_z&e3BvgAzdH3Fp7rtwgAzdH3Fkt2jq7wgp7rtwg-albdd8bn_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo8_z&e3Bri5p5ri5p5_z&e3BvgAzdH3Fp7rtwgAzdH3Fkt2jq7wgp7rtwg-albdd8bn_z&e3Bip4s',
+              fromURLHost: 'www1.photophoto.cn',
+              currentIndex: '',
+              width: 694,
+              height: 987,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '98576544_230_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2011-01-16 00:00',
+              fromPageTitle: '比格犬图片图片-图行天下图库',
+              fromPageTitleEnc: '比格犬图片图片-图行天下图库',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '2216442127,683760566',
+              os: '656593182,2398591299',
+              simid: '3451711491,285036596',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '6cd8d4',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=471605427,1896058937&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fwww.taopic.com%2Fuploads%2Fallimg%2F120628%2F201776-12062q4363293.jpg&refer=http%3A%2F%2Fwww.taopic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ef5e34360555e71cc1f05b276cdff927',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fwww.taopic.com%2Fuploads%2Fallimg%2F120628%2F201776-12062q4363293.jpg&refer=http%3A%2F%2Fwww.taopic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ef5e34360555e71cc1f05b276cdff927',
+                  FromURL: 'http:\/\/www.taopic.com\/tuku\/201206\/188975.html',
+                  FromUrl: 'http:\/\/www.taopic.com\/tuku\/201206\/188975.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=471605427,1896058937&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=471605427,1896058937&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              pageNum: 14,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.taopic.com%2Fuploads%2Fallimg%2F120628%2F201776-12062q4363293.jpg&refer=http%3A%2F%2Fwww.taopic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ef5e34360555e71cc1f05b276cdff927',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bpw5rtv_z&e3Bv54AzdH3Fp7h7AzdH3Fda8damAzdH3F8bbl0c_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bpw5rtv_z&e3Bv54AzdH3Fp7h7AzdH3Fda8damAzdH3F8bbl0c_z&e3Bip4s',
+              fromURLHost: 'www.taopic.com',
+              currentIndex: '',
+              width: 667,
+              height: 1000,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2242914464_227_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2011-10-01 08:22',
+              fromPageTitle: '可爱小狗图片 图片素材(编号:20120628023632)-陆地动物-生物世界-图',
+              fromPageTitleEnc: '可爱小狗图片 图片素材(编号:20120628023632)-陆地动物-生物世界-图',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '1816039766,3452757673',
+              os: '2487173731,381755874',
+              simid: '3374218427,132394844',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'e07287',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img0.baidu.com/it/u=3380135286,847690319&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=375',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg2.niutuku.com%2Fdesk%2F1207%2F0820%2Fntk68882.jpg&refer=http%3A%2F%2Fimg2.niutuku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c178b853be81806c13d558289656b941',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg2.niutuku.com%2Fdesk%2F1207%2F0820%2Fntk68882.jpg&refer=http%3A%2F%2Fimg2.niutuku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c178b853be81806c13d558289656b941',
+                  FromURL: 'http:\/\/niutuku.com\/bizhi\/958\/104312.shtml',
+                  FromUrl: 'http:\/\/niutuku.com\/bizhi\/958\/104312.shtml'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img0.baidu.com/it/u=3380135286,847690319&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=375',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img0.baidu.com/it/u=3380135286,847690319&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=375',
+              pageNum: 15,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.niutuku.com%2Fdesk%2F1207%2F0820%2Fntk68882.jpg&refer=http%3A%2F%2Fimg2.niutuku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=c178b853be81806c13d558289656b941',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3FlcbAzdH3F8a9n8d_z&e3Bfip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3FlcbAzdH3F8a9n8d_z&e3Bfip4s',
+              fromURLHost: 'niutuku.com',
+              currentIndex: '',
+              width: 1600,
+              height: 1200,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2253400368_233_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2019-02-17 11:36',
+              fromPageTitle: '狗年看狗[第三辑] 小狗桌面壁纸图片-17_高清电脑壁纸图片下载niutuku',
+              fromPageTitleEnc: '狗年看狗[第三辑] 小狗桌面壁纸图片-17_高清电脑壁纸图片下载niutuku',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '2705459257,1144783383',
+              os: '3008077884,3423126279',
+              simid: '3341322802,412931550',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'cfa042',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img1.baidu.com/it/u=2793214251,1108608171&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=497',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F3a3a63d5437c565c5dc9413e085380e685e98af01bf9e-ioWQrx_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=07a69d3f9d494c324517f8c4bd76ba52',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F3a3a63d5437c565c5dc9413e085380e685e98af01bf9e-ioWQrx_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=07a69d3f9d494c324517f8c4bd76ba52',
+                  FromURL: 'http:\/\/huaban.com\/pins\/1255280692\/',
+                  FromUrl: 'http:\/\/huaban.com\/pins\/1255280692\/'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img1.baidu.com/it/u=2793214251,1108608171&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=497',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img1.baidu.com/it/u=2793214251,1108608171&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=497',
+              pageNum: 16,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F3a3a63d5437c565c5dc9413e085380e685e98af01bf9e-ioWQrx_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=07a69d3f9d494c324517f8c4bd76ba52',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3F8dccdbamldAzdH3F',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3F8dccdbamldAzdH3F',
+              fromURLHost: 'huaban.com',
+              currentIndex: '',
+              width: 658,
+              height: 497,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '106965296_230_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2017-08-02 13:55',
+              fromPageTitle: '发呆的哈八狗图片',
+              fromPageTitleEnc: '发呆的哈八狗图片',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3558547186,2519620966',
+              os: '2268259498,1944788381',
+              simid: '3558547186,2519620966',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'b1c7f7',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img0.baidu.com/it/u=1252746820,1240890171&fm=253&fmt=auto&app=138&f=JPG?w=724&h=477',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F1803%2F182-1P303112613.png&refer=http%3A%2F%2Fuploads.5068.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=6d19e869349735ae354313d8b0a0f49f',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F1803%2F182-1P303112613.png&refer=http%3A%2F%2Fuploads.5068.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=6d19e869349735ae354313d8b0a0f49f',
+                  FromURL: 'http:\/\/www.5068.com\/zw\/xiaoxue\/san\/531779.html',
+                  FromUrl: 'http:\/\/www.5068.com\/zw\/xiaoxue\/san\/531779.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img0.baidu.com/it/u=1252746820,1240890171&fm=253&fmt=auto&app=138&f=JPG?w=724&h=477',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img0.baidu.com/it/u=1252746820,1240890171&fm=253&fmt=auto&app=138&f=JPG?w=724&h=477',
+              pageNum: 17,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F1803%2F182-1P303112613.png&refer=http%3A%2F%2Fuploads.5068.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=6d19e869349735ae354313d8b0a0f49f',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bcamb_z&e3Bv54AzdH3FzoAzdH3Fxtw5x7jAzdH3FfwgAzdH3Fcn800l_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bcamb_z&e3Bv54AzdH3FzoAzdH3Fxtw5x7jAzdH3FfwgAzdH3Fcn800l_z&e3Bip4s',
+              fromURLHost: 'www.5068.com',
+              currentIndex: '',
+              width: 724,
+              height: 477,
+              type: 'png',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2236623008_225_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2018-03-03 11:18',
+              fromPageTitle: '小学三年级描写动物的作文:害羞的小狗 - 5068儿童网',
+              fromPageTitleEnc: '小学三年级描写动物的作文:害羞的小狗 - 5068儿童网',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '2185179098,3118661539',
+              os: '3032702073,1589993382',
+              simid: '2185179098,3118661539',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '441b2d',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=638721022,3403685495&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2Fb0aa690d2cc8e80361502b93a605f49f.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=adf9ad9b0b70fed3a4432d174e04b1c4',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2Fb0aa690d2cc8e80361502b93a605f49f.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=adf9ad9b0b70fed3a4432d174e04b1c4',
+                  FromURL: 'http:\/\/bizhi.ijinshan.com\/7\/303156.shtml',
+                  FromUrl: 'http:\/\/bizhi.ijinshan.com\/7\/303156.shtml'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=638721022,3403685495&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=638721022,3403685495&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              pageNum: 18,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2Fb0aa690d2cc8e80361502b93a605f49f.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=adf9ad9b0b70fed3a4432d174e04b1c4',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fktzit_z&e3Bt3tgfiwg_z&e3Bv54AzdH3F0AzdH3Fnan8cm_z&e3Bfip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fktzit_z&e3Bt3tgfiwg_z&e3Bv54AzdH3F0AzdH3Fnan8cm_z&e3Bfip4s',
+              fromURLHost: 'bizhi.ijinshan.com',
+              currentIndex: '',
+              width: 1920,
+              height: 1080,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '95430960_1252_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2020-08-27 02:39',
+              fromPageTitle: '狗壁纸【313】狗壁纸图片_桌面壁纸图片_壁纸下载-元气壁纸',
+              fromPageTitleEnc: '狗壁纸【313】狗壁纸图片_桌面壁纸图片_壁纸下载-元气壁纸',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3851732719,3178014947',
+              os: '1326776511,3067910307',
+              simid: '3851732719,3178014947',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '979525',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img1.baidu.com/it/u=897470271,748350123&fm=253&fmt=auto&app=138&f=JPEG?w=751&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Ftu1.whhost.net%2Fuploads%2F20181227%2F00%2F1545840385-EHgQdbIKRX.jpg&refer=http%3A%2F%2Ftu1.whhost.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=1209aaf372c9dc91aac1e8e1ad67f12e',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Ftu1.whhost.net%2Fuploads%2F20181227%2F00%2F1545840385-EHgQdbIKRX.jpg&refer=http%3A%2F%2Ftu1.whhost.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=1209aaf372c9dc91aac1e8e1ad67f12e',
+                  FromURL: 'http:\/\/www.whhost.net\/dongwu\/50864.html',
+                  FromUrl: 'http:\/\/www.whhost.net\/dongwu\/50864.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img1.baidu.com/it/u=897470271,748350123&fm=253&fmt=auto&app=138&f=JPEG?w=751&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img1.baidu.com/it/u=897470271,748350123&fm=253&fmt=auto&app=138&f=JPEG?w=751&h=500',
+              pageNum: 19,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ftu1.whhost.net%2Fuploads%2F20181227%2F00%2F1545840385-EHgQdbIKRX.jpg&refer=http%3A%2F%2Ftu1.whhost.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=1209aaf372c9dc91aac1e8e1ad67f12e',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Boii5fp_z&e3BgjpAzdH3F15g2o7AzdH3Fcabm9_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Boii5fp_z&e3BgjpAzdH3F15g2o7AzdH3Fcabm9_z&e3Bip4s',
+              fromURLHost: 'www.whhost.net',
+              currentIndex: '',
+              width: 1024,
+              height: 682,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2254448944_231_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2018-08-21 16:57',
+              fromPageTitle: '狗图片大全大图哈士奇 - 366亿图',
+              fromPageTitleEnc: '狗图片大全大图哈士奇 - 366亿图',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '12473110,2629673876',
+              os: '1834214389,3916944317',
+              simid: '12473110,2629673876',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '11f468',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=2845261024,4111953527&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpic1.win4000.com%2Fpic%2F4%2F22%2Ffc5d1297286.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f32a639d09f36a3de41f1e8eba54162c',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpic1.win4000.com%2Fpic%2F4%2F22%2Ffc5d1297286.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f32a639d09f36a3de41f1e8eba54162c',
+                  FromURL: 'http:\/\/www.win4000.com\/meinv108291_4.html',
+                  FromUrl: 'http:\/\/www.win4000.com\/meinv108291_4.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=2845261024,4111953527&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=2845261024,4111953527&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750',
+              pageNum: 20,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fpic%2F4%2F22%2Ffc5d1297286.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=f32a639d09f36a3de41f1e8eba54162c',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Botg9aaa_z&e3Bv54AzdH3F4jtge8abdl8_9_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Botg9aaa_z&e3Bv54AzdH3F4jtge8abdl8_9_z&e3Bip4s',
+              fromURLHost: 'www.win4000.com',
+              currentIndex: '',
+              width: 640,
+              height: 960,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '95430960_228_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2014-05-29 15:32',
+              fromPageTitle: '哈士奇图片 动物狗图片大全[4/27]_动物_美桌网',
+              fromPageTitleEnc: '哈士奇图片 动物狗图片大全[4/27]_动物_美桌网',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '217296114,621272893',
+              os: '359378071,2595392255',
+              simid: '217296114,621272893',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'bb58b4',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=1680337181,2855625710&fm=253&fmt=auto&app=138&f=JPEG?w=333&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Ftu1.whhost.net%2Fuploads%2F20190302%2F14%2F1551507093-XOcEmMgJQY.jpg&refer=http%3A%2F%2Ftu1.whhost.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=fccc9cddc2af62af618abfc9d7e8a18f',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Ftu1.whhost.net%2Fuploads%2F20190302%2F14%2F1551507093-XOcEmMgJQY.jpg&refer=http%3A%2F%2Ftu1.whhost.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=fccc9cddc2af62af618abfc9d7e8a18f',
+                  FromURL: 'http:\/\/www.whhost.net\/dongwu\/64824_3.html',
+                  FromUrl: 'http:\/\/www.whhost.net\/dongwu\/64824_3.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=1680337181,2855625710&fm=253&fmt=auto&app=138&f=JPEG?w=333&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=1680337181,2855625710&fm=253&fmt=auto&app=138&f=JPEG?w=333&h=500',
+              pageNum: 21,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ftu1.whhost.net%2Fuploads%2F20190302%2F14%2F1551507093-XOcEmMgJQY.jpg&refer=http%3A%2F%2Ftu1.whhost.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=fccc9cddc2af62af618abfc9d7e8a18f',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Boii5fp_z&e3BgjpAzdH3F15g2o7AzdH3Fm9bd9_n_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Boii5fp_z&e3BgjpAzdH3F15g2o7AzdH3Fm9bd9_n_z&e3Bip4s',
+              fromURLHost: 'www.whhost.net',
+              currentIndex: '',
+              width: 666,
+              height: 1000,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '105916576_227_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2019-03-02 14:11',
+              fromPageTitle: '白色沙皮狗图片(3) - 366亿图',
+              fromPageTitleEnc: '白色沙皮狗图片(3) - 366亿图',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '2100486638,2292326814',
+              os: '2076085353,4257356779',
+              simid: '2100486638,2292326814',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '1a59a2',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img0.baidu.com/it/u=2750657437,2761718651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=749',
+              replaceUrl: [
+                {
+                  ObjURL: 'https:\/\/pics0.baidu.com\/feed\/267f9e2f07082838e7b261d209b341074d08f16f.jpeg?token=65e110061e9a4cdfd85f118f2b6e8a9d',
+                  ObjUrl: 'https:\/\/pics0.baidu.com\/feed\/267f9e2f07082838e7b261d209b341074d08f16f.jpeg?token=65e110061e9a4cdfd85f118f2b6e8a9d',
+                  FromURL: 'http:\/\/baijiahao.baidu.com\/s?id=1671064871356716501&wfr=spider&for=pc',
+                  FromUrl: 'http:\/\/baijiahao.baidu.com\/s?id=1671064871356716501&wfr=spider&for=pc'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img0.baidu.com/it/u=2750657437,2761718651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=749',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img0.baidu.com/it/u=2750657437,2761718651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=749',
+              pageNum: 22,
+              objURL: 'https://pics0.baidu.com/feed/267f9e2f07082838e7b261d209b341074d08f16f.jpeg?token=65e110061e9a4cdfd85f118f2b6e8a9d',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fkwt3twiw5_z&e3Bkwt17_z&e3Bv54AzdH3Ff?t1=8m08am9b08ncm08mca8&ou6=frt1j6&u56=rv',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fkwt3twiw5_z&e3Bkwt17_z&e3Bv54AzdH3Ff?t1=8m08am9b08ncm08mca8&ou6=frt1j6&u56=rv',
+              fromURLHost: 'baijiahao.baidu.com',
+              currentIndex: '',
+              width: 640,
+              height: 959,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2241866032_1249_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2020-07-02 00:00',
+              fromPageTitle: '抓拍汪星人搞怪瞬间,爱笑爱漂亮的大白狗,11种表情包太可爱了',
+              fromPageTitleEnc: '抓拍汪星人搞怪瞬间,爱笑爱漂亮的大白狗,11种表情包太可爱了',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '1653372009,354520974',
+              os: '2535562777,2190568238',
+              simid: '3521471026,322458304',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'f35abd',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=449979410,3490766128&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fwww.v3wall.com%2Fwallpaper%2F1600_1200%2F1003%2F1600_1200_20100327010205209458.jpg&refer=http%3A%2F%2Fwww.v3wall.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=7b5711e023048a4cd93daebb3f020fa9',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fwww.v3wall.com%2Fwallpaper%2F1600_1200%2F1003%2F1600_1200_20100327010205209458.jpg&refer=http%3A%2F%2Fwww.v3wall.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=7b5711e023048a4cd93daebb3f020fa9',
+                  FromURL: 'http:\/\/www.v3wall.com\/html\/pic_down\/1600_1200\/pic_down_34388_1600_1200.html',
+                  FromUrl: 'http:\/\/www.v3wall.com\/html\/pic_down\/1600_1200\/pic_down_34388_1600_1200.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=449979410,3490766128&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=449979410,3490766128&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              pageNum: 23,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.v3wall.com%2Fwallpaper%2F1600_1200%2F1003%2F1600_1200_20100327010205209458.jpg&refer=http%3A%2F%2Fwww.v3wall.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=7b5711e023048a4cd93daebb3f020fa9',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Benowss_z&e3Bv54AzdH3Fip4sAzdH3Frtv_15ogAzdH3F8maa_8daaAzdH3Frtv_15og_n9nbb_8maa_8daa_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Benowss_z&e3Bv54AzdH3Fip4sAzdH3Frtv_15ogAzdH3F8maa_8daaAzdH3Frtv_15og_n9nbb_8maa_8daa_z&e3Bip4s',
+              fromURLHost: 'www.v3wall.com',
+              currentIndex: '',
+              width: 1600,
+              height: 1200,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '92285088_1250_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2020-02-25 00:00',
+              fromPageTitle: '小狗写真高清壁纸(五)9 - 1600x1200 壁纸下载 - 小狗写真高清壁纸(五',
+              fromPageTitleEnc: '小狗写真高清壁纸(五)9 - 1600x1200 壁纸下载 - 小狗写真高清壁纸(五',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3432576989,4012202923',
+              os: '3893488348,1792937111',
+              simid: '3432576989,4012202923',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'dfa796',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=91864603,1155432436&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg.xspic.com%2Fimg1%2F55%2F35%2F1057591_1.jpg&refer=http%3A%2F%2Fimg.xspic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=8651b4dd5b27b29f7ca80f2ee064b564',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg.xspic.com%2Fimg1%2F55%2F35%2F1057591_1.jpg&refer=http%3A%2F%2Fimg.xspic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=8651b4dd5b27b29f7ca80f2ee064b564',
+                  FromURL: 'http:\/\/xspic.com\/zuowen\/chuer\/1057591.htm',
+                  FromUrl: 'http:\/\/xspic.com\/zuowen\/chuer\/1057591.htm'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=91864603,1155432436&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=91864603,1155432436&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+              pageNum: 24,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.xspic.com%2Fimg1%2F55%2F35%2F1057591_1.jpg&refer=http%3A%2F%2Fimg.xspic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=8651b4dd5b27b29f7ca80f2ee064b564',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fxfrtv_z&e3Bv54AzdH3Fz75ojgAzdH3Fvi7j6AzdH3F8ac0cl8_z&e3Bip4',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fxfrtv_z&e3Bv54AzdH3Fz75ojgAzdH3Fvi7j6AzdH3F8ac0cl8_z&e3Bip4',
+              fromURLHost: 'xspic.com',
+              currentIndex: '',
+              width: 720,
+              height: 540,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2237671728_225_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2017-06-13 00:00',
+              fromPageTitle: '小白狗作文大全20篇',
+              fromPageTitleEnc: '小白狗作文大全20篇',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '1867117809,2629103716',
+              os: '2199296682,4150956034',
+              simid: '1867117809,2629103716',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '4027f9',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img0.baidu.com/it/u=3912569346,913714644&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2F3dd044cf01e445eee062256fe04aa65c.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ea49777839a939df54fb0af0a760ae70',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2F3dd044cf01e445eee062256fe04aa65c.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ea49777839a939df54fb0af0a760ae70',
+                  FromURL: 'http:\/\/bizhi.ijinshan.com\/7\/303386.shtml',
+                  FromUrl: 'http:\/\/bizhi.ijinshan.com\/7\/303386.shtml'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img0.baidu.com/it/u=3912569346,913714644&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img0.baidu.com/it/u=3912569346,913714644&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              pageNum: 25,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2F3dd044cf01e445eee062256fe04aa65c.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=ea49777839a939df54fb0af0a760ae70',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fktzit_z&e3Bt3tgfiwg_z&e3Bv54AzdH3F0AzdH3Fnannbm_z&e3Bfip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fktzit_z&e3Bt3tgfiwg_z&e3Bv54AzdH3F0AzdH3Fnannbm_z&e3Bfip4s',
+              fromURLHost: 'bizhi.ijinshan.com',
+              currentIndex: '',
+              width: 1920,
+              height: 1080,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2248157488_1255_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2020-08-27 02:16',
+              fromPageTitle: '狗壁纸【158】狗壁纸图片_桌面壁纸图片_壁纸下载-元气壁纸',
+              fromPageTitleEnc: '狗壁纸【158】狗壁纸图片_桌面壁纸图片_壁纸下载-元气壁纸',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '1834316757,2000829034',
+              os: '2247966546,3828253837',
+              simid: '1834316757,2000829034',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'a29b91',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=1430513342,2252489974&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2F9bad7a2b036604768371a4c1e381e79e.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=a95583c954d671ad394f549863a2f123',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2F9bad7a2b036604768371a4c1e381e79e.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=a95583c954d671ad394f549863a2f123',
+                  FromURL: 'http:\/\/bizhi.ijinshan.com\/7\/303139.shtml',
+                  FromUrl: 'http:\/\/bizhi.ijinshan.com\/7\/303139.shtml'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=1430513342,2252489974&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=1430513342,2252489974&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500',
+              pageNum: 26,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg-baofun.zhhainiao.com%2Ffs%2F9bad7a2b036604768371a4c1e381e79e.jpg&refer=http%3A%2F%2Fimg-baofun.zhhainiao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=a95583c954d671ad394f549863a2f123',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fktzit_z&e3Bt3tgfiwg_z&e3Bv54AzdH3F0AzdH3Fnan8nl_z&e3Bfip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fktzit_z&e3Bt3tgfiwg_z&e3Bv54AzdH3F0AzdH3Fnan8nl_z&e3Bfip4s',
+              fromURLHost: 'bizhi.ijinshan.com',
+              currentIndex: '',
+              width: 1920,
+              height: 1080,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '97528112_1252_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2020-08-27 01:56',
+              fromPageTitle: '狗壁纸【211】狗壁纸图片_桌面壁纸图片_壁纸下载-元气壁纸',
+              fromPageTitleEnc: '狗壁纸【211】狗壁纸图片_桌面壁纸图片_壁纸下载-元气壁纸',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '202494862,491624392',
+              os: '781765064,2515076177',
+              simid: '202494862,491624392',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '729147',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=4254344620,3197327776&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpic.qqbizhi.com%2Fallimg%2Fbpic%2F76%2F576_13.jpg&refer=http%3A%2F%2Fpic.qqbizhi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=3d1c66627c0d9ef39fe6f8c3a839d788',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpic.qqbizhi.com%2Fallimg%2Fbpic%2F76%2F576_13.jpg&refer=http%3A%2F%2Fpic.qqbizhi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=3d1c66627c0d9ef39fe6f8c3a839d788',
+                  FromURL: 'http:\/\/www.qqbizhi.com\/desk\/dongwu\/576.html',
+                  FromUrl: 'http:\/\/www.qqbizhi.com\/desk\/dongwu\/576.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=4254344620,3197327776&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=4254344620,3197327776&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313',
+              pageNum: 27,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.qqbizhi.com%2Fallimg%2Fbpic%2F76%2F576_13.jpg&refer=http%3A%2F%2Fpic.qqbizhi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=3d1c66627c0d9ef39fe6f8c3a839d788',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bqqktzit_z&e3Bv54AzdH3F1jfhAzdH3F15g2o7AzdH3Fc0m_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bqqktzit_z&e3Bv54AzdH3F1jfhAzdH3F15g2o7AzdH3Fc0m_z&e3Bip4s',
+              fromURLHost: 'www.qqbizhi.com',
+              currentIndex: '',
+              width: 860,
+              height: 538,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '106965296_1256_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2020-04-02 01:35',
+              fromPageTitle: '草地上玩耍的小狗壁纸',
+              fromPageTitleEnc: '草地上玩耍的小狗壁纸',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3408396498,3792663908',
+              os: '2969800605,4038360682',
+              simid: '3408396498,3792663908',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'fde5eb',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img2.baidu.com/it/u=2174329413,1343185757&fm=253&fmt=auto&app=138&f=JPEG?w=650&h=433',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpic.soutu123.com%2Felement_origin_min_pic%2F16%2F09%2F11%2F1457d4f5bced7f8.jpg%21%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.soutu123.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=972ec9c4294a5d0a95f02f461fc2ee0b',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fpic.soutu123.com%2Felement_origin_min_pic%2F16%2F09%2F11%2F1457d4f5bced7f8.jpg%21%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.soutu123.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=972ec9c4294a5d0a95f02f461fc2ee0b',
+                  FromURL: 'http:\/\/www.soutu123.com\/moban\/5369592.html',
+                  FromUrl: 'http:\/\/www.soutu123.com\/moban\/5369592.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img2.baidu.com/it/u=2174329413,1343185757&fm=253&fmt=auto&app=138&f=JPEG?w=650&h=433',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img2.baidu.com/it/u=2174329413,1343185757&fm=253&fmt=auto&app=138&f=JPEG?w=650&h=433',
+              pageNum: 28,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.soutu123.com%2Felement_origin_min_pic%2F16%2F09%2F11%2F1457d4f5bced7f8.jpg%21%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.soutu123.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=972ec9c4294a5d0a95f02f461fc2ee0b',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bf57p78dn_z&e3Bv54AzdH3F45kwgAzdH3Fcnmlcld_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bf57p78dn_z&e3Bv54AzdH3F45kwgAzdH3Fcnmlcld_z&e3Bip4s',
+              fromURLHost: 'www.soutu123.com',
+              currentIndex: '',
+              width: 650,
+              height: 433,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2240817456_1251_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2021-03-01 00:00',
+              fromPageTitle: '小狗写真图片模板素材免费下载,图片编号5369592_搜图123,www.soutu12',
+              fromPageTitleEnc: '小狗写真图片模板素材免费下载,图片编号5369592_搜图123,www.soutu12',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3103534304,1770552968',
+              os: '209353629,3282016102',
+              simid: '3480746379,341704905',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: 'be2c4d',
+              clickUrl: ''
+            },
+            {
+              thumbURL: 'https://img1.baidu.com/it/u=3387615604,943896151&fm=253&fmt=auto&app=138&f=JPEG?w=656&h=500',
+              replaceUrl: [
+                {
+                  ObjURL:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fphoto.16pic.com%2F00%2F70%2F61%2F16pic_7061676_b.jpg&refer=http%3A%2F%2Fphoto.16pic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=52a9dabbd499c8da2bfb5c29f068b0ce',
+                  ObjUrl:
+                    'https:\/\/gimg2.baidu.com\/image_search\/src=http%3A%2F%2Fphoto.16pic.com%2F00%2F70%2F61%2F16pic_7061676_b.jpg&refer=http%3A%2F%2Fphoto.16pic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=52a9dabbd499c8da2bfb5c29f068b0ce',
+                  FromURL: 'http:\/\/www.16pic.com\/pic\/pic_7061676.html',
+                  FromUrl: 'http:\/\/www.16pic.com\/pic\/pic_7061676.html'
+                }
+              ],
+              adType: '0',
+              middleURL: 'https://img1.baidu.com/it/u=3387615604,943896151&fm=253&fmt=auto&app=138&f=JPEG?w=656&h=500',
+              largeTnImageUrl: '',
+              hasLarge: 0,
+              hoverURL: 'https://img1.baidu.com/it/u=3387615604,943896151&fm=253&fmt=auto&app=138&f=JPEG?w=656&h=500',
+              pageNum: 29,
+              objURL:
+                'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fphoto.16pic.com%2F00%2F70%2F61%2F16pic_7061676_b.jpg&refer=http%3A%2F%2Fphoto.16pic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671006609&t=52a9dabbd499c8da2bfb5c29f068b0ce',
+              fromURL: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B8mrtv_z&e3Bv54AzdH3FrtvAzdH3Frtv_0am8m0m_z&e3Bip4s',
+              fromJumpUrl: 'ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B8mrtv_z&e3Bv54AzdH3FrtvAzdH3Frtv_0am8m0m_z&e3Bip4s',
+              fromURLHost: 'www.16pic.com',
+              currentIndex: '',
+              width: 945,
+              height: 720,
+              type: 'jpg',
+              is_gif: 0,
+              isCopyright: 0,
+              resourceInfo: null,
+              strategyAssessment: '2239768880_230_0_0',
+              filesize: '',
+              bdSrcType: '0',
+              di: '7146857200093233153',
+              is: '0,0',
+              partnerId: 0,
+              bdSetImgNum: 0,
+              spn: 0,
+              bdImgnewsDate: '2018-03-10 00:00',
+              fromPageTitle: '法斗牛犬蓝色的,狗,动物高清图库素材免费下载(图片编号:7061676)-六',
+              fromPageTitleEnc: '法斗牛犬蓝色的,狗,动物高清图库素材免费下载(图片编号:7061676)-六',
+              bdSourceName: '',
+              bdFromPageTitlePrefix: '',
+              isAspDianjing: 0,
+              token: '',
+              imgType: '',
+              adid: '0',
+              pi: '0',
+              cs: '3798367953,611211915',
+              os: '3288835940,4124521093',
+              simid: '3798367953,611211915',
+              source_type: '',
+              personalized: '0',
+              base64: '',
+              adPicId: '0',
+              isCommodity: '0',
+              commodityInfo: null,
+              shituToken: '33f1d1',
+              clickUrl: ''
+            },
+            {}
+          ]
+        })
+        app.setData('fcadData', {
+          fcData: [
+            {
+              type: 'FCAD',
+              cellClass: 'fc-default',
+              timeSign: '39',
+              posType: 1,
+              pageNum: 0,
+              thumbURL: 'https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00027-2043.jpg',
+              middleURL: 'https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00027-2043.jpg',
+              largeTnImageUrl: 'https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00027-2043.jpg',
+              hoverURL: 'https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00027-2043.jpg',
+              matchURL: 'https:\/\/ns-strategy.cdn.bcebos.com\/ns-strategy\/upload\/fc_big_pic\/part-00027-2043.jpg',
+              fromURLHost: 'www.hbwskj.cn',
+              fromURL:
+                'http:\/\/www.baidu.com\/baidu.php?url=Ks00000EAMrnlPLIy_piWHEPl39Ptj-OdUL8mn116jsXSbHEkDG3yq29rpie5qWmPfwu38pcs2Yqu_NEragJ5cff5BK8YcJIpieYrocn5bGPb3gU2gHi-xjNqtF_AhbaFG-zGtgoGoiKFn5GqoQ1XIPQsWt5hqSzSrq2xnpTn4ucFfJ7_Ky286Ohc-zz3q2kIwJ_M1U6DogIe2hT43d8NNXROXpK.7D_NR2Ar5Od66uxAS6Mz3D4g_kTPHniccLYDsTAg9lm8W_o69deYsGtptqqhz15vgpY4qenr15jIkH8olXhzEGerqqLQqAFBUQjkBzOCw1uIPYgetnx4J38vQqEqjqTNdaEtLexLlcEzYrvQQO3rWtLWfSWtLexHvOhOU9e51NsLwI5ggBmhzstm_ElDTvgHI7SOjZSp8QVBOUOfOg7IfoOPSLqSBQgd9JmerVqLQxYwYA5Pe5O6LOlqZlt-ZNfCOk5o4vpO-to54ZKG1vxMOdq-ZO_x2zzzzz1FvxtRI-----------hgwO_SVbYXxGYq_xz____E3I531umeQQcg4UlOSQWuuuuO3Q5OKOo__3xufBhIs425YTmE3hjVCtxdPMO0Lp5dEuOeZMe5qMw4qAgQOVR5gujSxqSEO_wxoOxOCOCX81uOwJ8SWtv5VoOCOjYOqWAetL2-OqAeCOe7-M4tEL3Zxa_Has1f_UVOWEe70.U1Yk0ZDq8UT0Ijvqtnroz2lv3nMukl30pyYqn1mL0ZNG5fKspyfqP0KWpyfqrjf0mhbqn10k0AuY5H00TA6qn0KET1Ys0AFL5H00UMfqn0K1XWY0ThIYmyTqn0K8IM0qna3snj0snj0sn0K-ThTqn0KYTh7buHYs0AFbpyfq0AwWmvfq0A71gv-bm1dsTzd8p6KM5gI1UMn0TMfqQHD0TgKGujYs0Z7Wpyfqn0K9mWYsg100TZ0qn0KVIZ0qn0KbuAqs5H00ThCqn0KYIgnqPH61P1f1rHm1n1DdrHmkPj0sPsK9m1Yk0ZK85H00TA7Ygvu_myTqn0K-TLfqn0K-IA-b5iYk0A71TAPW5H00IgKGUhPW5H00uhPdIjYs0A7buhk9u1Yk0ZIhThqV5fKBIjYk0Z91IZRqPjnzP1mYnjf0ThNkIjYkPWm3PjDYPW04nHRY0ZPGujYLnhN9uhP9PHFBmWTYPH6d0AqY5HD0ULFsIjYzc10Wn1_1nanknj0sc1ckPH61nHbYPjRWnHcsninknW0kQW0WnznYr1mWnanV0AVG5H00UgfqnWfkn0KVm1Ys0AdWgvuzUvYqn0Kbmy4dmhNxTAk9Uh-bT1Ys0A7bTgbq8UT0mywkIjYs0A-1mvsqn0KkUgfqn0K9u7q1ULNzmvRqnanW0APzm1Y1rjb1rf&us=newvui&xst=m1YKT1Y3nW6sP103PWRknW0Ln1DzP1T1g1nvPdts0gTqExjjJtB8V8jFvTX80gDq8UTKIHYYn1cLPWfsP07Y5HDvPW6YnHfvnjbKUgDqnfcs0ohL0yPC5yuWgLKW0Hn1nWR3rH6YPWm&ai=0_429258576_1_0&word=',
+              width: 1140,
+              iwidth: 1140,
+              height: 760,
+              iheight: 760,
+              fromPageTitle: '\u5e7f\u5dde \u7eaf\u79cd\u91d1\u6bdb\u72ac \u5927\u578b\u80b2\u72ac\u57fa\u5730\u76f4\u9500 \u8840\u7edf..',
+              adShortSummary: '',
+              base64: ''
+            }
+          ],
+          fcMidData: [],
+          fcBtData: [],
+          fcType: '',
+          adType: 0,
+          fcAdDatasLen: '1'
+        })
+        app.setData('albumBannerData', [])
+        app.setData('xgMidData', { xgMidData: [], xgMidDataLen: '0' })
+        app.setData('rpData', { data: [] })
+        app.setData('browserRsData', { Status: '', query: '', desc: '', id: '', photos: [] })
+        app.setData('rsQuery', [])
+        app.setData('middlers', [])
+
+        app.setData('rsResult', [])
+        app.setData('hotWords', [
+          {
+            query: '重庆4.8级地震',
+            flag: '重庆4.8级地震',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%87%8D%E5%BA%864.8%E7%BA%A7%E5%9C%B0%E9%9C%87',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '内蒙古现罕见日柱',
+            flag: '内蒙古现罕见日柱',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%86%85%E8%92%99%E5%8F%A4%E7%8E%B0%E7%BD%95%E8%A7%81%E6%97%A5%E6%9F%B1',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '女歌手本兮22岁逝世',
+            flag: '女歌手本兮22岁逝世',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%A5%B3%E6%AD%8C%E6%89%8B%E6%9C%AC%E5%85%AE22%E5%B2%81%E9%80%9D%E4%B8%96',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '蒋劲夫托举佟丽娅',
+            flag: '蒋劲夫托举佟丽娅',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%92%8B%E5%8A%B2%E5%A4%AB%E6%89%98%E4%B8%BE%E4%BD%9F%E4%B8%BD%E5%A8%85',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '打工钱被咬成碎片',
+            flag: '打工钱被咬成碎片',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%89%93%E5%B7%A5%E9%92%B1%E8%A2%AB%E5%92%AC%E6%88%90%E7%A2%8E%E7%89%87',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '村民发现奇石似飞碟',
+            flag: '村民发现奇石似飞碟',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%9D%91%E6%B0%91%E5%8F%91%E7%8E%B0%E5%A5%87%E7%9F%B3%E4%BC%BC%E9%A3%9E%E7%A2%9F',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '环卫夫妻身高不足一米四',
+            flag: '环卫夫妻身高不足一米四',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E7%8E%AF%E5%8D%AB%E5%A4%AB%E5%A6%BB%E8%BA%AB%E9%AB%98%E4%B8%8D%E8%B6%B3%E4%B8%80%E7%B1%B3%E5%9B%9B',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '沙滩现巨大黑色怪物',
+            flag: '沙滩现巨大黑色怪物',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%B2%99%E6%BB%A9%E7%8E%B0%E5%B7%A8%E5%A4%A7%E9%BB%91%E8%89%B2%E6%80%AA%E7%89%A9',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '黄子韬搂何炅',
+            flag: '黄子韬搂何炅',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%BB%84%E5%AD%90%E9%9F%AC%E6%90%82%E4%BD%95%E7%82%85',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          },
+          {
+            query: '2016nba圣诞大战',
+            flag: '2016nba圣诞大战',
+            url: 'http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=2016nba%E5%9C%A3%E8%AF%9E%E5%A4%A7%E6%88%98',
+            hot: '0',
+            fromurl: '',
+            photos: []
+          }
+        ])
+
+        app.init()
+        app.run()
+      })
+    })()
+    !(function () {
+      window.tn = 'result'
+      window.vsid = 'e65978ccf0fc109d19518f0faa9d45ee5cabb0d9'
+      if ('index' === window.tn || 'result' === window.tn || 'detail' === window.tn) {
+        var sttb = document.getElementById('sttb')
+        sttb.removeAttribute && sttb.removeAttribute('title')
+      }
+      /**
+       * 统计代码
+       **/
+      window.ss = (function () {
+        var URL = '//imgstat.baidu.com/9.gif?rainbow=1&'
+        function request(url) {
+          var seed = Math.random()
+          var img = (window[seed] = new Image())
+          img.onload = img.onerror = function () {
+            window[seed] = null
+            img.onload = img.onerror = null
+            img = null
+          }
+          img.src = url
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function (arg, url, e) {
+          var s = URL + json2Query(arg) + '&' + Math.random()
+          request(s)
+          if (url) {
+            setTimeout(function () {
+              location.href = url
+            }, 300)
+            e = e || window.event
+            if (e) {
+              if (e.preventDefault) {
+                e.preventDefault()
+              } else {
+                e.returnValue = false
+              }
+            }
+          }
+        }
+      })()
+      window.__originTitle = document.title
+      function json2Query(json) {
+        if (json == null || typeof json != 'object') return json
+        var query = []
+        for (var i in json) {
+          if (i != '') query[query.length] = i + '=' + json[i]
+        }
+        return query.join('&')
+      }
+
+      require.async(['common:widget/ui/base/base', 'common:widget/shitu/run'], function ($, shitu) {
+        window.$ = $
+        $(document).ready(function () {
+          var st = new shitu()
+          st.init()
+          window.stInstance = st
+        })
+      })
+    })()
+    !(function () {
+      require.async(['searchresult:widget/pagelets/base/topRs/topRs'], function (topRsClass) {
+        var topRs = new topRsClass()
+        var changeFilter = false
+        changeFilter = true
+        topRs.init({
+          changeFilter: changeFilter
+        })
+      })
+    })()
+    !(function () {
+      if (window.hotspotData) {
+        require.async(['searchresult:widget/pagelets/base/timeliness/init'], function (Timeliness) {
+          new Timeliness().init(window.hotspotData)
+        })
+      }
+    })()
+    !(function () {
+      /**
+       * isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+       */
+      require.async(
+        ['common:widget/ui/base/base', 'searchresult:widget/ui/utils/utils', 'common:widget/ui/historyRecord/historyRecord', 'common:widget/ui/utils/utils'],
+        function ($, utils, HistoryRecord, commonUtils) {
+          window.s_submit = function (form, isRefresh) {
+            //图片url检索跳转
+            var keyword = form.word.value
+
+            if ($.trim(keyword).length > 0) {
+              var historyRecord = new HistoryRecord({ historyKey: 'indexPageSugList' })
+              historyRecord.setRecord(keyword)
+              $.cookie.set('cleanHistoryStatus', 0, { path: '/' })
+            }
+
+            var tiaoma =
+              /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) || /img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword)
+            var ajaxURL =
+              'https://graph.baidu.com/upload?image=' +
+              encodeURIComponent(keyword) +
+              '&range=imagePage&tn=pc&from=pc&image_source=PC_UPLOAD_IMAGE_ICONURL&extUiData%5bisLogoShow%5d=1'
+            var isIE6789 = $.browser.msie && $.browser.version <= 9
+
+            if (tiaoma && !isIE6789) {
+              // speed
+              $.cookie('uploadTime', new Date().getTime(), { path: '/' })
+
+              $.ajax({
+                url: ajaxURL,
+                type: 'post',
+                success: function (response) {
+                  if (response.status === 0) {
+                    location.href = response.data.url
+                  } else if (response.status === 1002) {
+                    alert('未找到该图片的详细信息，请上传其他图片')
+                  } else {
+                    alert('出错了！（规则未定）')
+                  }
+                },
+                error: function () {
+                  alert('网络问题，请稍候再试！')
+                }
+              })
+              return false
+            }
+
+            var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)))
+            if (typeof searchConf.fm == 'undefined') {
+              searchConf.fm = ''
+            }
+            if (typeof searchConf.fmq == 'undefined') {
+              searchConf.fmq = ''
+            }
+            if (utils.trim(searchConf.queryWord) == form.word.value) {
+              form.fmq.value = utils.fmqValueSet()
+            } else {
+              var fmqDate = new Date()
+              var T = fmqDate.getTime()
+              if (searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1) {
+                var fmqvalue = searchConf.fmq
+                form.fmq.value = T + '_' + fmqvalue + '_R'
+              } else {
+                form.fmq.value = T + '_R'
+              }
+            }
+            var isflip = $('body').hasClass('flip')
+            form.tn.value = 'baiduimage'
+
+            form.ct.value = '201326592'
+            form.cl.value = '2'
+
+            form.pv.value = ''
+            form.action = '/search/index'
+
+            // 新筛选，及未命中阿凡达筛选时，重新检索时需要记录筛选
+            form.z.value = commonUtils.getQueryValue('z')
+            form.ic.value = commonUtils.getQueryValue('ic')
+            form.lm.value = commonUtils.getQueryValue('lm')
+            form.hd.value = commonUtils.getQueryValue('hd')
+            form.latest.value = commonUtils.getQueryValue('latest')
+            form.copyright.value = commonUtils.getQueryValue('copyright')
+            form.width.value = commonUtils.getQueryValue('width')
+            form.height.value = commonUtils.getQueryValue('height')
+
+            if (window.canUseHttps) {
+              form.action = 'https://' + window.location.host + '/search/index'
+            }
+
+            if (isflip) {
+              form.action = '/search/flip'
+            }
+            if (isRefresh == true) {
+              // submit直接提交新query
+              form.se.value = '1'
+            } else {
+              var showtab = parseInt(searchConf.showtab)
+              if (!isNaN(showtab) && showtab > 0) {
+                form.showtab.value = showtab
+              }
+            }
+            form.ctd.value = +new Date() + '^00_' + $(window).width() + 'X' + window.innerHeight
+
+            return true
+          }
+        }
+      )
+    })()
+    !(function () {
+      require.async(['searchresult:widget/pagelets/base/imgShowOpt/imgShowOpt'], function (imgShowOptClass) {
+        var imgShowOpt = new imgShowOptClass()
+        imgShowOpt.init()
+      })
+    })()
+    !(function () {
+      window.bid = -1
+
+      if (!window.passport) {
+        var script = document.createElement('script')
+        script.src = '//passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=' + new Date().getTime()
+        document.body.appendChild(script)
+      }
+      require.async(['common:widget/loginbar/loginbar'], function (loginbar) {
+        loginbar.init()
+      })
+    })()
+    !(function () {
+      require.async(['common:widget/ui/backtop/backTop'])
+
+      require.async(['common:widget/ui/feedback/feedback'], function (feedback) {
+        var callbacks = {}
+        var containerId = 'common-feedback-link'
+        feedback.init(callbacks, containerId)
+      })
+    })()
+    !(function () {
+      require.async(['common:widget/ui/sourcehttps/sourcehttps'], function (init) {
+        init({
+          tn: 'baiduimage',
+          word: '%E7%8B%97',
+          sample: 100 - 0
+        })
+      })
+
+      require.async(['searchresult:widget/ui/utils/utils'], function (utils) {
+        try {
+          utils.reportHttpsStatus()
+        } catch (e) {}
+      })
+    })()
+    !(function () {
+      require.async(['common:widget/ui/monitorRequest/monitorRequest'], function (monitorRequest) {
+        var userid = ''
+        var q = '%E7%8B%97'
+        var tn = 'result'
+        var host = '//imgstat.baidu.com/4.gif'
+        var hostSweb = '//image.baidu.com/pv/pv2.gif'
+        var rsw = ''
+
+        if (location.href !== document.referrer && document.referrer != '') {
+          rsw = '&rs='
+        } else {
+          rsw = ''
+        }
+        var samplekey = window.samplekey || ''
+        var img = (window['__log__' + new Date().getTime() * Math.random()] = document.createElement('img'))
+        monitorRequest(
+          host +
+            '?logid=8280708651207312773&ie=utf-8&q=' +
+            q +
+            '&userid=' +
+            userid +
+            '&samplekey=' +
+            encodeURIComponent(samplekey) +
+            '&event_type=pv&tn=' +
+            tn +
+            '&tpl=result.page&fr=' +
+            rsw
+        )
+        var imgSweb = (window['__log__' + new Date().getTime() * Math.random()] = document.createElement('img'))
+        imgSweb.src =
+          hostSweb +
+          '?ie=utf-8&q=' +
+          q +
+          '&userid=' +
+          userid +
+          '&samplekey=' +
+          encodeURIComponent(samplekey) +
+          '&event_type=pv&tn=' +
+          tn +
+          '&tpl=&fr=' +
+          rsw +
+          '&' +
+          new Date() * Math.random()
+      })
+    })()
+    !(function () {
+      require.async(['common:widget/ui/fmCheck/fmCheck'], function (fmCheck) {
+        fmCheck.init()
+      })
+    })()
+    !(function () {
+      require.async(['common:widget/ui/base/base'], function ($) {
+        var userFrom = ''
+
+        var elem = document.createElement('a')
+        elem.href = document.referrer
+        var hostname = elem['hostname']
+        var urlfr = ''
+        var chenjin = ''
+        var urlword = '%E7%8B%97'
+
+        if (hostname !== 'image.baidu.com') {
+          if (urlfr) {
+            userFrom += urlfr
+            if (chenjin === '1') {
+              userFrom += 'chenjin1'
+            } else if (chenjin === '0') {
+              var wordList = [
+                '%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87',
+                '%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8',
+                '%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87',
+                '%E5%A4%B4%E5%83%8F',
+                '%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87'
+              ]
+              if (wordList.indexOf(urlword) >= 0) {
+                userFrom += 'chenjin0'
+              }
+            }
+          } else {
+            userFrom = hostname
+          }
+        } else {
+          userFrom = $.cookie('userFrom') || ''
+        }
+
+        if (userFrom.length > 0) {
+          var date = new Date()
+          date.setTime(date.getTime() + 10 * 60 * 1000)
+          $.cookie('userFrom', userFrom, { path: '/', expires: date, domain: '.baidu.com' })
+        } else {
+          $.cookie('userFrom', null, { path: '/', domain: '.baidu.com' })
+        }
+      })
+    })()
+    !(function () {
+      require.async(['common:widget/ui/durationStat/durationStat'], function (durationStat) {
+        durationStat.heartStart({
+          pageId: 2 - 0,
+          sid: '5ff4ba48959904ba1408433c41b05b17de3369ae',
+          cs: '',
+          word: '狗'
+        })
+      })
+    })()
+  </script>
+</html>
